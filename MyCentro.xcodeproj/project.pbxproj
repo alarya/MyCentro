@@ -8,13 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		68F39DE81BFAC9CA005E9695 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F39DE71BFAC9CA005E9695 /* AppDelegate.swift */; };
-		68F39DEA1BFAC9CA005E9695 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F39DE91BFAC9CA005E9695 /* ViewController.swift */; };
+		68F39DEA1BFAC9CA005E9695 /* BusListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F39DE91BFAC9CA005E9695 /* BusListController.swift */; };
 		68F39DED1BFAC9CA005E9695 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68F39DEB1BFAC9CA005E9695 /* Main.storyboard */; };
 		68F39DF01BFAC9CA005E9695 /* MyCentro.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 68F39DEE1BFAC9CA005E9695 /* MyCentro.xcdatamodeld */; };
 		68F39DF21BFAC9CA005E9695 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68F39DF11BFAC9CA005E9695 /* Assets.xcassets */; };
 		68F39DF51BFAC9CA005E9695 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68F39DF31BFAC9CA005E9695 /* LaunchScreen.storyboard */; };
 		68F39E001BFAC9CB005E9695 /* MyCentroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F39DFF1BFAC9CB005E9695 /* MyCentroTests.swift */; };
 		68F39E0B1BFAC9CB005E9695 /* MyCentroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F39E0A1BFAC9CB005E9695 /* MyCentroUITests.swift */; };
+		68F39E191BFACC21005E9695 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68F39E181BFACC21005E9695 /* MapKit.framework */; };
+		68F931421BFAE24F00758BB6 /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F931411BFAE24F00758BB6 /* MainScreenController.swift */; settings = {ASSET_TAGS = (); }; };
+		68F931431BFAE24F00758BB6 /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F931411BFAE24F00758BB6 /* MainScreenController.swift */; settings = {ASSET_TAGS = (); }; };
+		68F931441BFAE24F00758BB6 /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F931411BFAE24F00758BB6 /* MainScreenController.swift */; settings = {ASSET_TAGS = (); }; };
+		68F931461BFAEBC200758BB6 /* BusListNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F931451BFAEBC200758BB6 /* BusListNavigationController.swift */; settings = {ASSET_TAGS = (); }; };
+		68F931471BFAEBC200758BB6 /* BusListNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F931451BFAEBC200758BB6 /* BusListNavigationController.swift */; settings = {ASSET_TAGS = (); }; };
+		68F931481BFAEBC200758BB6 /* BusListNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F931451BFAEBC200758BB6 /* BusListNavigationController.swift */; settings = {ASSET_TAGS = (); }; };
+		68F9314A1BFAEF1A00758BB6 /* BusDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F931491BFAEF1A00758BB6 /* BusDetailsController.swift */; settings = {ASSET_TAGS = (); }; };
+		68F9314B1BFAEF1A00758BB6 /* BusDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F931491BFAEF1A00758BB6 /* BusDetailsController.swift */; settings = {ASSET_TAGS = (); }; };
+		68F9314C1BFAEF1A00758BB6 /* BusDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F931491BFAEF1A00758BB6 /* BusDetailsController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +47,7 @@
 /* Begin PBXFileReference section */
 		68F39DE41BFAC9CA005E9695 /* MyCentro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCentro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68F39DE71BFAC9CA005E9695 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		68F39DE91BFAC9CA005E9695 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		68F39DE91BFAC9CA005E9695 /* BusListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusListController.swift; sourceTree = "<group>"; };
 		68F39DEC1BFAC9CA005E9695 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		68F39DEF1BFAC9CA005E9695 /* MyCentro.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyCentro.xcdatamodel; sourceTree = "<group>"; };
 		68F39DF11BFAC9CA005E9695 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +59,10 @@
 		68F39E061BFAC9CB005E9695 /* MyCentroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyCentroUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		68F39E0A1BFAC9CB005E9695 /* MyCentroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCentroUITests.swift; sourceTree = "<group>"; };
 		68F39E0C1BFAC9CB005E9695 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68F39E181BFACC21005E9695 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		68F931411BFAE24F00758BB6 /* MainScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenController.swift; sourceTree = "<group>"; };
+		68F931451BFAEBC200758BB6 /* BusListNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusListNavigationController.swift; sourceTree = "<group>"; };
+		68F931491BFAEF1A00758BB6 /* BusDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusDetailsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68F39E191BFACC21005E9695 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +94,7 @@
 		68F39DDB1BFAC9CA005E9695 = {
 			isa = PBXGroup;
 			children = (
+				68F39E181BFACC21005E9695 /* MapKit.framework */,
 				68F39DE61BFAC9CA005E9695 /* MyCentro */,
 				68F39DFE1BFAC9CB005E9695 /* MyCentroTests */,
 				68F39E091BFAC9CB005E9695 /* MyCentroUITests */,
@@ -100,7 +116,10 @@
 			isa = PBXGroup;
 			children = (
 				68F39DE71BFAC9CA005E9695 /* AppDelegate.swift */,
-				68F39DE91BFAC9CA005E9695 /* ViewController.swift */,
+				68F39DE91BFAC9CA005E9695 /* BusListController.swift */,
+				68F931411BFAE24F00758BB6 /* MainScreenController.swift */,
+				68F931451BFAEBC200758BB6 /* BusListNavigationController.swift */,
+				68F931491BFAEF1A00758BB6 /* BusDetailsController.swift */,
 				68F39DEB1BFAC9CA005E9695 /* Main.storyboard */,
 				68F39DF11BFAC9CA005E9695 /* Assets.xcassets */,
 				68F39DF31BFAC9CA005E9695 /* LaunchScreen.storyboard */,
@@ -195,6 +214,11 @@
 				TargetAttributes = {
 					68F39DE31BFAC9CA005E9695 = {
 						CreatedOnToolsVersion = 7.0.1;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					68F39DFA1BFAC9CB005E9695 = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -258,9 +282,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68F39DEA1BFAC9CA005E9695 /* ViewController.swift in Sources */,
+				68F39DEA1BFAC9CA005E9695 /* BusListController.swift in Sources */,
 				68F39DE81BFAC9CA005E9695 /* AppDelegate.swift in Sources */,
+				68F931421BFAE24F00758BB6 /* MainScreenController.swift in Sources */,
+				68F931461BFAEBC200758BB6 /* BusListNavigationController.swift in Sources */,
 				68F39DF01BFAC9CA005E9695 /* MyCentro.xcdatamodeld in Sources */,
+				68F9314A1BFAEF1A00758BB6 /* BusDetailsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +295,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68F931431BFAE24F00758BB6 /* MainScreenController.swift in Sources */,
+				68F9314B1BFAEF1A00758BB6 /* BusDetailsController.swift in Sources */,
 				68F39E001BFAC9CB005E9695 /* MyCentroTests.swift in Sources */,
+				68F931471BFAEBC200758BB6 /* BusListNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +306,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68F931441BFAE24F00758BB6 /* MainScreenController.swift in Sources */,
+				68F9314C1BFAEF1A00758BB6 /* BusDetailsController.swift in Sources */,
 				68F39E0B1BFAC9CB005E9695 /* MyCentroUITests.swift in Sources */,
+				68F931481BFAEBC200758BB6 /* BusListNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,6 +520,7 @@
 				68F39E111BFAC9CB005E9695 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		68F39E121BFAC9CB005E9695 /* Build configuration list for PBXNativeTarget "MyCentroTests" */ = {
 			isa = XCConfigurationList;
@@ -495,6 +529,7 @@
 				68F39E141BFAC9CB005E9695 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		68F39E151BFAC9CB005E9695 /* Build configuration list for PBXNativeTarget "MyCentroUITests" */ = {
 			isa = XCConfigurationList;
@@ -503,6 +538,7 @@
 				68F39E171BFAC9CB005E9695 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
