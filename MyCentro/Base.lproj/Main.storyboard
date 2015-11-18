@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BFt-If-ETf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="DOy-ce-KuD">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="67s-tJ-frF">
+            <objects>
+                <navigationController id="DOy-ce-KuD" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gXh-qB-aVZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BFt-If-ETf" kind="relationship" relationship="rootViewController" id="zut-rg-mEE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kb9-pj-UuO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-327" y="369"/>
+        </scene>
         <!--MyCentro-->
         <scene sceneID="fdk-ia-MIV">
             <objects>
@@ -16,14 +32,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Centro" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ndQ-PV-Fvm">
-                                <rect key="frame" x="0.0" y="20" width="320" height="62"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="41"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hoR-RY-Ivb">
-                                <rect key="frame" x="44" y="117" width="232" height="60"/>
+                                <rect key="frame" x="44" y="133" width="232" height="60"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Bus to Home">
@@ -31,10 +41,11 @@
                                 </state>
                                 <connections>
                                     <action selector="busToHome:" destination="BFt-If-ETf" eventType="touchUpInside" id="vcZ-jk-CpT"/>
+                                    <segue destination="BYZ-38-t0r" kind="push" identifier="BusListToHome" id="Jkm-EM-73S"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27t-pE-5Pq">
-                                <rect key="frame" x="44" y="281" width="232" height="60"/>
+                                <rect key="frame" x="44" y="315" width="232" height="60"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Search Buses">
@@ -42,7 +53,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t3Q-7G-rBu">
-                                <rect key="frame" x="44" y="363" width="232" height="60"/>
+                                <rect key="frame" x="44" y="408" width="232" height="60"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Settings">
@@ -50,7 +61,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KmL-yd-2fN">
-                                <rect key="frame" x="44" y="199" width="232" height="60"/>
+                                <rect key="frame" x="44" y="222" width="232" height="60"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Bus to Work/College">
@@ -58,18 +69,27 @@
                                 </state>
                                 <connections>
                                     <action selector="busToWork:" destination="BFt-If-ETf" eventType="touchDragInside" id="Ybw-8f-CTk"/>
+                                    <segue destination="BYZ-38-t0r" kind="push" identifier="BusListToWork" id="GdZ-Um-WbJ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Centro" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ndQ-PV-Fvm">
+                                <rect key="frame" x="6" y="64" width="320" height="62"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="41"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="yNo-qT-jQa"/>
                     <connections>
-                        <segue destination="cQN-53-ATv" kind="push" id="Zqt-Vs-ldm"/>
+                        <outlet property="busToHomeButton" destination="hoR-RY-Ivb" id="UtA-Xs-KRy"/>
+                        <outlet property="busToWorkButton" destination="KmL-yd-2fN" id="7jr-gZ-iEA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9FR-Ba-Pg4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-154" y="369"/>
+            <point key="canvasLocation" x="96" y="369"/>
         </scene>
         <!--Bus List-->
         <scene sceneID="tne-QT-ifu">
@@ -104,12 +124,12 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="n0S-Xe-ftH"/>
                     </navigationItem>
                     <connections>
-                        <segue destination="ova-TP-MCA" kind="push" id="HEa-Vu-hc9"/>
+                        <segue destination="ova-TP-MCA" kind="push" identifier="BusDetails" id="HEa-Vu-hc9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="683" y="369"/>
+            <point key="canvasLocation" x="633" y="369"/>
         </scene>
         <!--Bus Details-->
         <scene sceneID="Pqx-xz-Z2j">
@@ -161,29 +181,8 @@
             </objects>
             <point key="canvasLocation" x="1069" y="369"/>
         </scene>
-        <!--BusListNavigationController-->
-        <scene sceneID="DE7-Hn-iIL">
-            <objects>
-                <navigationController title="BusListNavigationController" id="cQN-53-ATv" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="wUa-Bm-FKu"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Wky-Fu-J9a">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="9iL-p5-1e2"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DEi-hp-jAk" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationBar contentMode="scaleToFill" id="00a-7f-6xC">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <items>
-                        <navigationItem title="Title" id="sqy-OH-5v7"/>
-                    </items>
-                </navigationBar>
-            </objects>
-            <point key="canvasLocation" x="274" y="369"/>
-        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="GdZ-Um-WbJ"/>
+    </inferredMetricsTieBreakers>
 </document>

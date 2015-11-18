@@ -19,9 +19,6 @@
 		68F931421BFAE24F00758BB6 /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F931411BFAE24F00758BB6 /* MainScreenController.swift */; settings = {ASSET_TAGS = (); }; };
 		68F931431BFAE24F00758BB6 /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F931411BFAE24F00758BB6 /* MainScreenController.swift */; settings = {ASSET_TAGS = (); }; };
 		68F931441BFAE24F00758BB6 /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F931411BFAE24F00758BB6 /* MainScreenController.swift */; settings = {ASSET_TAGS = (); }; };
-		68F931461BFAEBC200758BB6 /* BusListNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F931451BFAEBC200758BB6 /* BusListNavigationController.swift */; settings = {ASSET_TAGS = (); }; };
-		68F931471BFAEBC200758BB6 /* BusListNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F931451BFAEBC200758BB6 /* BusListNavigationController.swift */; settings = {ASSET_TAGS = (); }; };
-		68F931481BFAEBC200758BB6 /* BusListNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F931451BFAEBC200758BB6 /* BusListNavigationController.swift */; settings = {ASSET_TAGS = (); }; };
 		68F9314A1BFAEF1A00758BB6 /* BusDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F931491BFAEF1A00758BB6 /* BusDetailsController.swift */; settings = {ASSET_TAGS = (); }; };
 		68F9314B1BFAEF1A00758BB6 /* BusDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F931491BFAEF1A00758BB6 /* BusDetailsController.swift */; settings = {ASSET_TAGS = (); }; };
 		68F9314C1BFAEF1A00758BB6 /* BusDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F931491BFAEF1A00758BB6 /* BusDetailsController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -61,7 +58,6 @@
 		68F39E0C1BFAC9CB005E9695 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68F39E181BFACC21005E9695 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		68F931411BFAE24F00758BB6 /* MainScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenController.swift; sourceTree = "<group>"; };
-		68F931451BFAEBC200758BB6 /* BusListNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusListNavigationController.swift; sourceTree = "<group>"; };
 		68F931491BFAEF1A00758BB6 /* BusDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusDetailsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,7 +114,6 @@
 				68F39DE71BFAC9CA005E9695 /* AppDelegate.swift */,
 				68F39DE91BFAC9CA005E9695 /* BusListController.swift */,
 				68F931411BFAE24F00758BB6 /* MainScreenController.swift */,
-				68F931451BFAEBC200758BB6 /* BusListNavigationController.swift */,
 				68F931491BFAEF1A00758BB6 /* BusDetailsController.swift */,
 				68F39DEB1BFAC9CA005E9695 /* Main.storyboard */,
 				68F39DF11BFAC9CA005E9695 /* Assets.xcassets */,
@@ -285,7 +280,6 @@
 				68F39DEA1BFAC9CA005E9695 /* BusListController.swift in Sources */,
 				68F39DE81BFAC9CA005E9695 /* AppDelegate.swift in Sources */,
 				68F931421BFAE24F00758BB6 /* MainScreenController.swift in Sources */,
-				68F931461BFAEBC200758BB6 /* BusListNavigationController.swift in Sources */,
 				68F39DF01BFAC9CA005E9695 /* MyCentro.xcdatamodeld in Sources */,
 				68F9314A1BFAEF1A00758BB6 /* BusDetailsController.swift in Sources */,
 			);
@@ -298,7 +292,6 @@
 				68F931431BFAE24F00758BB6 /* MainScreenController.swift in Sources */,
 				68F9314B1BFAEF1A00758BB6 /* BusDetailsController.swift in Sources */,
 				68F39E001BFAC9CB005E9695 /* MyCentroTests.swift in Sources */,
-				68F931471BFAEBC200758BB6 /* BusListNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,7 +302,6 @@
 				68F931441BFAE24F00758BB6 /* MainScreenController.swift in Sources */,
 				68F9314C1BFAEF1A00758BB6 /* BusDetailsController.swift in Sources */,
 				68F39E0B1BFAC9CB005E9695 /* MyCentroUITests.swift in Sources */,
-				68F931481BFAEBC200758BB6 /* BusListNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
