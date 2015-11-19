@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		68BF8BFD1BFD4CC3003F7437 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BF8BFC1BFD4CC3003F7437 /* Settings.swift */; settings = {ASSET_TAGS = (); }; };
+		68BF8BFF1BFD4EA2003F7437 /* BusModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BF8BFE1BFD4EA2003F7437 /* BusModelProtocol.swift */; settings = {ASSET_TAGS = (); }; };
+		68BF8C011BFD4F87003F7437 /* CentroBusApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BF8C001BFD4F87003F7437 /* CentroBusApiModel.swift */; settings = {ASSET_TAGS = (); }; };
 		68F39DE81BFAC9CA005E9695 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F39DE71BFAC9CA005E9695 /* AppDelegate.swift */; };
 		68F39DEA1BFAC9CA005E9695 /* BusListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F39DE91BFAC9CA005E9695 /* BusListController.swift */; };
 		68F39DED1BFAC9CA005E9695 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68F39DEB1BFAC9CA005E9695 /* Main.storyboard */; };
@@ -42,6 +45,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		68BF8BFC1BFD4CC3003F7437 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		68BF8BFE1BFD4EA2003F7437 /* BusModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusModelProtocol.swift; sourceTree = "<group>"; };
+		68BF8C001BFD4F87003F7437 /* CentroBusApiModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentroBusApiModel.swift; sourceTree = "<group>"; };
 		68F39DE41BFAC9CA005E9695 /* MyCentro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCentro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68F39DE71BFAC9CA005E9695 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		68F39DE91BFAC9CA005E9695 /* BusListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusListController.swift; sourceTree = "<group>"; };
@@ -115,6 +121,9 @@
 				68F39DE91BFAC9CA005E9695 /* BusListController.swift */,
 				68F931411BFAE24F00758BB6 /* MainScreenController.swift */,
 				68F931491BFAEF1A00758BB6 /* BusDetailsController.swift */,
+				68BF8BFC1BFD4CC3003F7437 /* Settings.swift */,
+				68BF8BFE1BFD4EA2003F7437 /* BusModelProtocol.swift */,
+				68BF8C001BFD4F87003F7437 /* CentroBusApiModel.swift */,
 				68F39DEB1BFAC9CA005E9695 /* Main.storyboard */,
 				68F39DF11BFAC9CA005E9695 /* Assets.xcassets */,
 				68F39DF31BFAC9CA005E9695 /* LaunchScreen.storyboard */,
@@ -277,6 +286,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68BF8BFF1BFD4EA2003F7437 /* BusModelProtocol.swift in Sources */,
+				68BF8BFD1BFD4CC3003F7437 /* Settings.swift in Sources */,
+				68BF8C011BFD4F87003F7437 /* CentroBusApiModel.swift in Sources */,
 				68F39DEA1BFAC9CA005E9695 /* BusListController.swift in Sources */,
 				68F39DE81BFAC9CA005E9695 /* AppDelegate.swift in Sources */,
 				68F931421BFAE24F00758BB6 /* MainScreenController.swift in Sources */,

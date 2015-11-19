@@ -28,16 +28,19 @@ class MainScreenController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //------button Action: Bus To home----------------------------//
     @IBAction func busToHome(sender: UIButton)
     {
         performSegueWithIdentifier("BusListToHome", sender: sender);
     }
     
+    //------button Action: Bus to Work/College-------------------//
     @IBAction func busToWork(sender: UIButton)
     {
         performSegueWithIdentifier("BusListToWork", sender: sender);
     }
     
+    //-----Segue handler ----------------------------------------//
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
         if segue.identifier == "BusListToHome"
@@ -45,6 +48,10 @@ class MainScreenController: UIViewController {
             if let destinationVC = segue.destinationViewController as? BusListController
             {
                 destinationVC.title = "Bus to Home";
+                
+                //mock data
+                destinationVC.departBusStop = ["College Place", "College Place", "College Place"] ;
+                destinationVC.departTime = ["9:30", "10:00", "11:30"];
             }
         }
         else if segue.identifier == "BusListToWork"
@@ -52,7 +59,12 @@ class MainScreenController: UIViewController {
             if let destinationVC = segue.destinationViewController as? BusListController
             {
                 destinationVC.title = "Bus to Work";
+                
+                //mock data
+                destinationVC.departBusStop =  ["East Genessee & Westcott", "East Genessee & Westcott", "East Genessee & Westcott"] ;
+                destinationVC.departTime = ["3:30", "4:00", "5:00"];
             }
         }
+
     }
 }
