@@ -7,19 +7,21 @@
 //
 
 import Foundation
-
+import CoreLocation
 
 protocol BusModelProtocol
 {
     
-    //methods for this protocols
+    //methods for this protocol
     
     
     //1. Get list of Buses for a (source,destination,time)
+    func getListOfBuses(source: CLLocationCoordinate2D, destination: CLLocationCoordinate2D, departTime: NSDate) -> [String]  ;
+
     
+    //2. Get list of Buses to home
+    func getListOfBusesToHome(source: CLLocationCoordinate2D, departTime: NSDate) -> [String] ;
     
-    //2. Get route Details for a particular bus
-    
-    
-    //3. track bus
+    //3. Get list of Buses to WOrk
+    func getListOfBusesToWork(source: CLLocationCoordinate2D, departTime: NSDate) -> [String] ;
 }

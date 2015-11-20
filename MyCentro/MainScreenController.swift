@@ -52,6 +52,7 @@ class MainScreenController: UIViewController {
                 //mock data
                 destinationVC.departBusStop = ["College Place", "College Place", "College Place"] ;
                 destinationVC.departTime = ["9:30", "10:00", "11:30"];
+                destinationVC.busListOf = "BusListToHome";
             }
         }
         else if segue.identifier == "BusListToWork"
@@ -63,6 +64,7 @@ class MainScreenController: UIViewController {
                 //mock data
                 destinationVC.departBusStop =  ["East Genessee & Westcott", "East Genessee & Westcott", "East Genessee & Westcott"] ;
                 destinationVC.departTime = ["3:30", "4:00", "5:00"];
+                destinationVC.busListOf = "BusListToWork";
             }
         }
 
