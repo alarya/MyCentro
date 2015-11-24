@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation
 
+
 class BusListController: UIViewController,UITableViewDataSource {
 
     var departBusStop = [String]();
@@ -16,29 +17,40 @@ class BusListController: UIViewController,UITableViewDataSource {
     var sourceLocation: CLLocationCoordinate2D?;
     var destinationLocation: CLLocationCoordinate2D? ;
     var busListOf: String?;
+    var centroAPI : CentroBusApiModel;
     
+    convenience init()
+    {
+        self.init(nibName: nil, bundle: nil);
+    }
     //default initializer
-    //required init(coder aDecoder: NSCoder)
-    //{
-    //super.init(coder: aDecoder)!;
-    //}
-    
+    required init(coder aDecoder: NSCoder)
+    {
+        centroAPI = CentroBusApiModel();
+        super.init(coder: aDecoder)!;
+    }
     //designated initializer
-    //override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!)
-    //{
-        
-    //    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
-    //}
+    override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!)
+    {
+        centroAPI = CentroBusApiModel();
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        
+        var result =  [String]();
         if(busListOf != nil)
         {
             if(busListOf == "BusListToHome")
             {
-                
+                let source = CLLocationCoordinate2D();
+                let destination = CLLocationCoordinate2D();
+                let time = NSDate() ;
+                result = centroAPI.getListOfBuses(source, destination: destination, departTime: time)
+                //print(result);
             }
             else if(busListOf == "BusListToWork")
             {

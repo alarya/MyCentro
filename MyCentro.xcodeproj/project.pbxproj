@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		686B3AFD1C03BE3C004E6A72 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 686B3AFC1C03BE3C004E6A72 /* Default-568h@2x.png */; settings = {ASSET_TAGS = (); }; };
+		686B3B001C0403B0004E6A72 /* getRoutesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686B3AFF1C0403B0004E6A72 /* getRoutesModel.swift */; settings = {ASSET_TAGS = (); }; };
+		686B3B021C040E1E004E6A72 /* getStopsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686B3B011C040E1E004E6A72 /* getStopsModel.swift */; settings = {ASSET_TAGS = (); }; };
+		686B3B041C0415BB004E6A72 /* getDirectionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686B3B031C0415BB004E6A72 /* getDirectionsModel.swift */; settings = {ASSET_TAGS = (); }; };
 		68BF8BFD1BFD4CC3003F7437 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BF8BFC1BFD4CC3003F7437 /* Settings.swift */; settings = {ASSET_TAGS = (); }; };
 		68BF8BFF1BFD4EA2003F7437 /* BusModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BF8BFE1BFD4EA2003F7437 /* BusModelProtocol.swift */; settings = {ASSET_TAGS = (); }; };
 		68BF8C011BFD4F87003F7437 /* CentroBusApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BF8C001BFD4F87003F7437 /* CentroBusApiModel.swift */; settings = {ASSET_TAGS = (); }; };
@@ -19,6 +23,18 @@
 		68F39E001BFAC9CB005E9695 /* MyCentroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F39DFF1BFAC9CB005E9695 /* MyCentroTests.swift */; };
 		68F39E0B1BFAC9CB005E9695 /* MyCentroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F39E0A1BFAC9CB005E9695 /* MyCentroUITests.swift */; };
 		68F39E191BFACC21005E9695 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68F39E181BFACC21005E9695 /* MapKit.framework */; };
+		68F845BD1C0117D800722A64 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68F845B31C0117D800722A64 /* AudioToolbox.framework */; };
+		68F845BE1C0117D800722A64 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68F845B41C0117D800722A64 /* CFNetwork.framework */; };
+		68F845BF1C0117D800722A64 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68F845B51C0117D800722A64 /* CoreGraphics.framework */; };
+		68F845C01C0117D800722A64 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68F845B61C0117D800722A64 /* CoreLocation.framework */; };
+		68F845C11C0117D800722A64 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 68F845B71C0117D800722A64 /* libsqlite3.tbd */; };
+		68F845C21C0117D800722A64 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 68F845B81C0117D800722A64 /* libz.tbd */; };
+		68F845C31C0117D800722A64 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68F845B91C0117D800722A64 /* QuartzCore.framework */; };
+		68F845C41C0117D800722A64 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68F845BA1C0117D800722A64 /* Security.framework */; };
+		68F845C51C0117D800722A64 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68F845BB1C0117D800722A64 /* StoreKit.framework */; };
+		68F845C61C0117D800722A64 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68F845BC1C0117D800722A64 /* SystemConfiguration.framework */; };
+		68F845C91C01191400722A64 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68F845C71C01191400722A64 /* Bolts.framework */; settings = {ASSET_TAGS = (); }; };
+		68F845CA1C01191400722A64 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68F845C81C01191400722A64 /* Parse.framework */; settings = {ASSET_TAGS = (); }; };
 		68F931421BFAE24F00758BB6 /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F931411BFAE24F00758BB6 /* MainScreenController.swift */; settings = {ASSET_TAGS = (); }; };
 		68F931431BFAE24F00758BB6 /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F931411BFAE24F00758BB6 /* MainScreenController.swift */; settings = {ASSET_TAGS = (); }; };
 		68F931441BFAE24F00758BB6 /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F931411BFAE24F00758BB6 /* MainScreenController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -45,6 +61,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		686B3AFC1C03BE3C004E6A72 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		686B3AFF1C0403B0004E6A72 /* getRoutesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = getRoutesModel.swift; sourceTree = "<group>"; };
+		686B3B011C040E1E004E6A72 /* getStopsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = getStopsModel.swift; sourceTree = "<group>"; };
+		686B3B031C0415BB004E6A72 /* getDirectionsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = getDirectionsModel.swift; sourceTree = "<group>"; };
 		68BF8BFC1BFD4CC3003F7437 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		68BF8BFE1BFD4EA2003F7437 /* BusModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusModelProtocol.swift; sourceTree = "<group>"; };
 		68BF8C001BFD4F87003F7437 /* CentroBusApiModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentroBusApiModel.swift; sourceTree = "<group>"; };
@@ -63,6 +83,18 @@
 		68F39E0A1BFAC9CB005E9695 /* MyCentroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCentroUITests.swift; sourceTree = "<group>"; };
 		68F39E0C1BFAC9CB005E9695 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68F39E181BFACC21005E9695 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		68F845B31C0117D800722A64 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		68F845B41C0117D800722A64 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		68F845B51C0117D800722A64 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		68F845B61C0117D800722A64 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		68F845B71C0117D800722A64 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		68F845B81C0117D800722A64 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		68F845B91C0117D800722A64 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		68F845BA1C0117D800722A64 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		68F845BB1C0117D800722A64 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		68F845BC1C0117D800722A64 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		68F845C71C01191400722A64 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		68F845C81C01191400722A64 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		68F931411BFAE24F00758BB6 /* MainScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenController.swift; sourceTree = "<group>"; };
 		68F931491BFAEF1A00758BB6 /* BusDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusDetailsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,6 +104,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68F845BD1C0117D800722A64 /* AudioToolbox.framework in Frameworks */,
+				68F845BE1C0117D800722A64 /* CFNetwork.framework in Frameworks */,
+				68F845BF1C0117D800722A64 /* CoreGraphics.framework in Frameworks */,
+				68F845C91C01191400722A64 /* Bolts.framework in Frameworks */,
+				68F845C01C0117D800722A64 /* CoreLocation.framework in Frameworks */,
+				68F845C11C0117D800722A64 /* libsqlite3.tbd in Frameworks */,
+				68F845CA1C01191400722A64 /* Parse.framework in Frameworks */,
+				68F845C21C0117D800722A64 /* libz.tbd in Frameworks */,
+				68F845C31C0117D800722A64 /* QuartzCore.framework in Frameworks */,
+				68F845C41C0117D800722A64 /* Security.framework in Frameworks */,
+				68F845C51C0117D800722A64 /* StoreKit.framework in Frameworks */,
+				68F845C61C0117D800722A64 /* SystemConfiguration.framework in Frameworks */,
 				68F39E191BFACC21005E9695 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -93,9 +137,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		686B3AFE1C040360004E6A72 /* CentroBusApiModels */ = {
+			isa = PBXGroup;
+			children = (
+				686B3AFF1C0403B0004E6A72 /* getRoutesModel.swift */,
+				686B3B011C040E1E004E6A72 /* getStopsModel.swift */,
+				686B3B031C0415BB004E6A72 /* getDirectionsModel.swift */,
+			);
+			name = CentroBusApiModels;
+			sourceTree = "<group>";
+		};
 		68F39DDB1BFAC9CA005E9695 = {
 			isa = PBXGroup;
 			children = (
+				686B3AFC1C03BE3C004E6A72 /* Default-568h@2x.png */,
+				68F845C71C01191400722A64 /* Bolts.framework */,
+				68F845C81C01191400722A64 /* Parse.framework */,
+				68F845B31C0117D800722A64 /* AudioToolbox.framework */,
+				68F845B41C0117D800722A64 /* CFNetwork.framework */,
+				68F845B51C0117D800722A64 /* CoreGraphics.framework */,
+				68F845B61C0117D800722A64 /* CoreLocation.framework */,
+				68F845B71C0117D800722A64 /* libsqlite3.tbd */,
+				68F845B81C0117D800722A64 /* libz.tbd */,
+				68F845B91C0117D800722A64 /* QuartzCore.framework */,
+				68F845BA1C0117D800722A64 /* Security.framework */,
+				68F845BB1C0117D800722A64 /* StoreKit.framework */,
+				68F845BC1C0117D800722A64 /* SystemConfiguration.framework */,
 				68F39E181BFACC21005E9695 /* MapKit.framework */,
 				68F39DE61BFAC9CA005E9695 /* MyCentro */,
 				68F39DFE1BFAC9CB005E9695 /* MyCentroTests */,
@@ -124,6 +191,7 @@
 				68BF8BFC1BFD4CC3003F7437 /* Settings.swift */,
 				68BF8BFE1BFD4EA2003F7437 /* BusModelProtocol.swift */,
 				68BF8C001BFD4F87003F7437 /* CentroBusApiModel.swift */,
+				686B3AFE1C040360004E6A72 /* CentroBusApiModels */,
 				68F39DEB1BFAC9CA005E9695 /* Main.storyboard */,
 				68F39DF11BFAC9CA005E9695 /* Assets.xcassets */,
 				68F39DF31BFAC9CA005E9695 /* LaunchScreen.storyboard */,
@@ -260,6 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				68F39DF51BFAC9CA005E9695 /* LaunchScreen.storyboard in Resources */,
+				686B3AFD1C03BE3C004E6A72 /* Default-568h@2x.png in Resources */,
 				68F39DF21BFAC9CA005E9695 /* Assets.xcassets in Resources */,
 				68F39DED1BFAC9CA005E9695 /* Main.storyboard in Resources */,
 			);
@@ -289,10 +358,13 @@
 				68BF8BFF1BFD4EA2003F7437 /* BusModelProtocol.swift in Sources */,
 				68BF8BFD1BFD4CC3003F7437 /* Settings.swift in Sources */,
 				68BF8C011BFD4F87003F7437 /* CentroBusApiModel.swift in Sources */,
+				686B3B001C0403B0004E6A72 /* getRoutesModel.swift in Sources */,
 				68F39DEA1BFAC9CA005E9695 /* BusListController.swift in Sources */,
 				68F39DE81BFAC9CA005E9695 /* AppDelegate.swift in Sources */,
+				686B3B021C040E1E004E6A72 /* getStopsModel.swift in Sources */,
 				68F931421BFAE24F00758BB6 /* MainScreenController.swift in Sources */,
 				68F39DF01BFAC9CA005E9695 /* MyCentro.xcdatamodeld in Sources */,
+				686B3B041C0415BB004E6A72 /* getDirectionsModel.swift in Sources */,
 				68F9314A1BFAEF1A00758BB6 /* BusDetailsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,6 +511,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MyCentro/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.aryaalok.www.MyCentro;
@@ -450,6 +526,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MyCentro/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.aryaalok.www.MyCentro;
