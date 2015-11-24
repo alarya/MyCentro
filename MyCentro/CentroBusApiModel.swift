@@ -20,8 +20,8 @@ class CentroBusApiModel : NSObject, BusModelProtocol, NSXMLParserDelegate{
     let acceptableRange = 2.00 ;                        //change this value to limit the bus stops found within the specified range
     var routesArray = [String]();                       // stores all uniquely identified routes
     let routesModel = getRoutesModel();                 // get all the routes tracked by the Server
-    let directionsModel = getDirectionsModel();         // given a route get the name of a one direction
-    let stopsModel = getStopsModel();
+    //var directionsModel : getDirectionsModel = nil;        // given a route get the name of a one direction
+    //var stopsModel? : getStopsModel = nil;
     
     var request : String                                // the effective API including all components
     {
@@ -111,7 +111,8 @@ class CentroBusApiModel : NSObject, BusModelProtocol, NSXMLParserDelegate{
                             }
                             else
                             {
-                                let direction = self.directionsModel.getDirection(data!);
+                                let directionsModel = getDirectionsModel();
+                                let direction = directionsModel.getDirection(data!);
                                 
                                 print("Route");
                                 print(route);
@@ -138,12 +139,18 @@ class CentroBusApiModel : NSObject, BusModelProtocol, NSXMLParserDelegate{
                                     }
                                     else
                                     {
-                                        let stops = self.stopsModel.getStops(data!);
+                                        let stopsModel = getStopsModel();
+                                        let stops = stopsModel.getStops(data!);
                                         
-                                        print("Route");
+                                        print("================Route===============");
                                         print(route);
-                                        print("Stops");
-                                        print(stops);
+                                        print("----------------Stops---------------");
+                                        for stop in stops{
+                                            print(stop.stpid);
+                                            print(stop.stpnm);
+                                            print(stop.lat);
+                                            print(stop.lon);
+                                        }
                                     }
                                 });
                                 

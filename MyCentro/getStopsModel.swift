@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct stop
-{
-    var stpid = 0 ;
+class stop: NSObject {
+    var stpid = "" ;
     var stpnm = "";
-    var lat = 0 ;
-    var lon = 0;
+    var lat : Double = 0.0;
+    var lon : Double = 0.0;
 }
+
 
 class getStopsModel : NSObject, NSXMLParserDelegate
 {
@@ -24,6 +24,10 @@ class getStopsModel : NSObject, NSXMLParserDelegate
     
     func getStops(data : NSData) -> [stop]
     {
+        let xmlData = NSXMLParser.init(data: data ) ;
+        xmlData.delegate = self ;
+        xmlData.parse();
+
         return stops ;
     }
     
@@ -32,7 +36,7 @@ class getStopsModel : NSObject, NSXMLParserDelegate
     {
         //start a new tuple
         if elementName == "stop"{
-            stopinfo = stop();
+            self.stopinfo = stop();
         }
     }
     
@@ -44,48 +48,64 @@ class getStopsModel : NSObject, NSXMLParserDelegate
     func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?)
     {
         //add the stop to the collection of stops
-        if elementName == "stop"
+        switch(elementName)
         {
-            stops.append(stopinfo);
-        }
-        else if elementName == "stpid"
-        {
-            //cleanup whitespaces
-            self.elementValue = self.elementValue.stringByReplacingOccurrencesOfString("\n", withString: "");
-            self.elementValue = self.elementValue.stringByReplacingOccurrencesOfString("\t", withString: "");
+            case "stop":
+                stops.append(stopinfo);
+                self.elementValue = "";
+                break;
+            case "stpid":
+                //cleanup whitespaces
+                self.elementValue = self.elementValue.stringByReplacingOccurrencesOfString("\n", withString: "");
+                self.elementValue = self.elementValue.stringByReplacingOccurrencesOfString("\t", withString: "");
             
-            self.stopinfo.stpid = Int(self.elementValue)!;
-        }
-        else if elementName == "stpnm"
-        {
-            //cleanup whitespaces
-            self.elementValue = self.elementValue.stringByReplacingOccurrencesOfString("\n", withString: "");
-            self.elementValue = self.elementValue.stringByReplacingOccurrencesOfString("\t", withString: "");
+                self.stopinfo.stpid = self.elementValue;
+                self.elementValue = "";
+                break;
+            case "stpnm":
+                //cleanup whitespaces
+                self.elementValue = self.elementValue.stringByReplacingOccurrencesOfString("\n", withString: "");
+                self.elementValue = self.elementValue.stringByReplacingOccurrencesOfString("\t", withString: "");
             
-            self.stopinfo.stpnm = self.elementValue;
-        }
-        else if elementName == "lat"
-        {
-            //cleanup whitespaces
-            self.elementValue = self.elementValue.stringByReplacingOccurrencesOfString("\n", withString: "");
-            self.elementValue = self.elementValue.stringByReplacingOccurrencesOfString("\t", withString: "");
+                self.stopinfo.stpnm = self.elementValue;
+                self.elementValue = "";
+                break;
+            case "lat":
+                //cleanup whitespaces
+                self.elementValue = self.elementValue.stringByReplacingOccurrencesOfString("\n", withString: "");
+                self.elementValue = self.elementValue.stringByReplacingOccurrencesOfString("\t", withString: "");
             
-            self.stopinfo.lat = Int(self.elementValue)!;
-        }
-        else if elementName == "lon"
-        {
-            //cleanup whitespaces
-            self.elementValue = self.elementValue.stringByReplacingOccurrencesOfString("\n", withString: "");
-            self.elementValue = self.elementValue.stringByReplacingOccurrencesOfString("\t", withString: "");
+                if let latitude = Double(self.elementValue){
+                    self.stopinfo.lat = latitude ;
+                }
+                else{
+                    self.stopinfo.lat = 0.0;
+                }
+                
+                self.elementValue = "";
+                break;
+            case "lon":
+                //cleanup whitespaces
+                self.elementValue = self.elementValue.stringByReplacingOccurrencesOfString("\n", withString: "");
+                self.elementValue = self.elementValue.stringByReplacingOccurrencesOfString("\t", withString: "");
             
-            self.stopinfo.lon = Int(self.elementValue)!;
+                if let longitude  = Double(self.elementValue){
+                    self.stopinfo.lon = longitude;
+                }
+                else{
+                    self.stopinfo.lon = 0.0;
+                }
+                
+                self.elementValue = "";
+                break;
+            default:
+                break;
         }
-        elementValue = "";
     }
     
     func parserDidEndDocument(parser: NSXMLParser)
     {
-        //print(self.routesArray);
+
     }
     //-------End of XML Parser delegates --------------------------------//
 }
