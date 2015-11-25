@@ -18,6 +18,7 @@ class BusListController: UIViewController,UITableViewDataSource {
     var destinationLocation: CLLocationCoordinate2D? ;
     var busListOf: String?;
     var centroAPI : CentroBusApiModel;
+    @IBOutlet weak var BusListTable: UITableView! ;
     
     convenience init()
     {
@@ -41,15 +42,14 @@ class BusListController: UIViewController,UITableViewDataSource {
         // Do any additional setup after loading the view, typically from a nib.
         
         
-        var result =  [String]();
         if(busListOf != nil)
         {
             if(busListOf == "BusListToHome")
             {
-                let source = CLLocationCoordinate2D();
-                let destination = CLLocationCoordinate2D();
-                let time = NSDate() ;
-                result = centroAPI.getListOfBuses(source, destination: destination, departTime: time)
+                let source = CLLocation.init(latitude: 43.45151797403, longitude: -76.487938582939);
+                let destination = CLLocation.init(latitude: 43.453070500149003, longitude: -76.492575958136996);
+
+                centroAPI.getListOfBuses(source, destination: destination);
                 //print(result);
             }
             else if(busListOf == "BusListToWork")
@@ -70,6 +70,12 @@ class BusListController: UIViewController,UITableViewDataSource {
         // Dispose of any resources that can be recreated.
     }
     
+    func updateTableView()
+    {
+        BusListTable.reloadData();
+    }
+    
+    //----------UI Table View delegate methods ----------------------//
     func tableView(tableView: UITableView,
         cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
@@ -93,6 +99,8 @@ class BusListController: UIViewController,UITableViewDataSource {
     {
         return departBusStop.count;
     }
+    //--------End of UI Table View delegate methods -----------------//
+    
     
     //-----Segue handler ----------------------------------------//
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)

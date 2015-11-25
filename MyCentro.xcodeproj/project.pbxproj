@@ -11,6 +11,8 @@
 		686B3B001C0403B0004E6A72 /* getRoutesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686B3AFF1C0403B0004E6A72 /* getRoutesModel.swift */; settings = {ASSET_TAGS = (); }; };
 		686B3B021C040E1E004E6A72 /* getStopsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686B3B011C040E1E004E6A72 /* getStopsModel.swift */; settings = {ASSET_TAGS = (); }; };
 		686B3B041C0415BB004E6A72 /* getDirectionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686B3B031C0415BB004E6A72 /* getDirectionsModel.swift */; settings = {ASSET_TAGS = (); }; };
+		68790ABB1C050E4E00644F8C /* notifyBusListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68790ABA1C050E4E00644F8C /* notifyBusListProtocol.swift */; settings = {ASSET_TAGS = (); }; };
+		68790ABD1C053B8000644F8C /* getPredictions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68790ABC1C053B8000644F8C /* getPredictions.swift */; settings = {ASSET_TAGS = (); }; };
 		68BF8BFD1BFD4CC3003F7437 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BF8BFC1BFD4CC3003F7437 /* Settings.swift */; settings = {ASSET_TAGS = (); }; };
 		68BF8BFF1BFD4EA2003F7437 /* BusModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BF8BFE1BFD4EA2003F7437 /* BusModelProtocol.swift */; settings = {ASSET_TAGS = (); }; };
 		68BF8C011BFD4F87003F7437 /* CentroBusApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BF8C001BFD4F87003F7437 /* CentroBusApiModel.swift */; settings = {ASSET_TAGS = (); }; };
@@ -65,6 +67,8 @@
 		686B3AFF1C0403B0004E6A72 /* getRoutesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = getRoutesModel.swift; sourceTree = "<group>"; };
 		686B3B011C040E1E004E6A72 /* getStopsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = getStopsModel.swift; sourceTree = "<group>"; };
 		686B3B031C0415BB004E6A72 /* getDirectionsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = getDirectionsModel.swift; sourceTree = "<group>"; };
+		68790ABA1C050E4E00644F8C /* notifyBusListProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = notifyBusListProtocol.swift; sourceTree = "<group>"; };
+		68790ABC1C053B8000644F8C /* getPredictions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = getPredictions.swift; sourceTree = "<group>"; };
 		68BF8BFC1BFD4CC3003F7437 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		68BF8BFE1BFD4EA2003F7437 /* BusModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusModelProtocol.swift; sourceTree = "<group>"; };
 		68BF8C001BFD4F87003F7437 /* CentroBusApiModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentroBusApiModel.swift; sourceTree = "<group>"; };
@@ -143,6 +147,8 @@
 				686B3AFF1C0403B0004E6A72 /* getRoutesModel.swift */,
 				686B3B011C040E1E004E6A72 /* getStopsModel.swift */,
 				686B3B031C0415BB004E6A72 /* getDirectionsModel.swift */,
+				68790ABA1C050E4E00644F8C /* notifyBusListProtocol.swift */,
+				68790ABC1C053B8000644F8C /* getPredictions.swift */,
 			);
 			name = CentroBusApiModels;
 			sourceTree = "<group>";
@@ -358,7 +364,9 @@
 				68BF8BFF1BFD4EA2003F7437 /* BusModelProtocol.swift in Sources */,
 				68BF8BFD1BFD4CC3003F7437 /* Settings.swift in Sources */,
 				68BF8C011BFD4F87003F7437 /* CentroBusApiModel.swift in Sources */,
+				68790ABB1C050E4E00644F8C /* notifyBusListProtocol.swift in Sources */,
 				686B3B001C0403B0004E6A72 /* getRoutesModel.swift in Sources */,
+				68790ABD1C053B8000644F8C /* getPredictions.swift in Sources */,
 				68F39DEA1BFAC9CA005E9695 /* BusListController.swift in Sources */,
 				68F39DE81BFAC9CA005E9695 /* AppDelegate.swift in Sources */,
 				686B3B021C040E1E004E6A72 /* getStopsModel.swift in Sources */,

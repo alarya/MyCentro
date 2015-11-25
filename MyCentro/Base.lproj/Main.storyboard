@@ -133,7 +133,7 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="S7x-bA-JdL"/>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="LXj-o1-cyz"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -143,6 +143,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="n0S-Xe-ftH"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="BusListTable" destination="Frt-o4-JCL" id="GK6-9D-Ds4"/>
                         <segue destination="ova-TP-MCA" kind="push" identifier="BusDetails" id="HEa-Vu-hc9"/>
                     </connections>
                 </viewController>

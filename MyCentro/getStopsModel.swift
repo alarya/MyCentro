@@ -8,13 +8,12 @@
 
 import Foundation
 
-class stop: NSObject {
-    var stpid = "" ;
-    var stpnm = "";
-    var lat : Double = 0.0;
-    var lon : Double = 0.0;
-}
 
+/************************************************************
+*
+* Parses the XML data from the API call to /getpstops
+*
+************************************************************/
 
 class getStopsModel : NSObject, NSXMLParserDelegate
 {
@@ -108,4 +107,11 @@ class getStopsModel : NSObject, NSXMLParserDelegate
 
     }
     //-------End of XML Parser delegates --------------------------------//
+}
+
+class stop: NSObject {
+    var stpid = "" ;
+    var stpnm = "";
+    var lat : Double = 0.0;
+    var lon : Double = 0.0;
 }
