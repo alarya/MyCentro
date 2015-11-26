@@ -15,17 +15,18 @@ import CoreLocation
  *
  ************************************************************/
 
-class getPredictionsModel : NSObject, NSXMLParserDelegate
+class PredictionsDataParser : NSObject, NSXMLParserDelegate
 {
     var elementValue = "";                              // to temporarily store XML element values
-    var predictions = [prediction]();
-    var predictioninfo = prediction() ;
+    var predictions = [Prediction]();
+    var predictioninfo = Prediction() ;
     
-    func getPredictions(data : NSData) -> [prediction]
-    {
+    func getPredictions(data : NSData) -> [Prediction]
+    {        
         let xmlData = NSXMLParser.init(data: data ) ;
         xmlData.delegate = self ;
         xmlData.parse();
+        
         
         return predictions ;
     }
@@ -34,8 +35,9 @@ class getPredictionsModel : NSObject, NSXMLParserDelegate
     func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String])
     {
         //start a new tuple
-        if elementName == "stop"{
-            self.predictioninfo = prediction();
+        if elementName == "prd"
+        {
+            self.predictioninfo = Prediction();
         }
     }
     
@@ -85,6 +87,22 @@ class getPredictionsModel : NSObject, NSXMLParserDelegate
             self.predictioninfo.stpnm = self.elementValue;
             self.elementValue = "";
             break;
+        case "vid":
+            //cleanup whitespaces
+            self.elementValue = self.elementValue.stringByReplacingOccurrencesOfString("\n", withString: "");
+            self.elementValue = self.elementValue.stringByReplacingOccurrencesOfString("\t", withString: "");
+            
+            self.predictioninfo.vid = self.elementValue;
+            self.elementValue = "";
+            break;
+        case "rtdir":
+            //cleanup whitespaces
+            self.elementValue = self.elementValue.stringByReplacingOccurrencesOfString("\n", withString: "");
+            self.elementValue = self.elementValue.stringByReplacingOccurrencesOfString("\t", withString: "");
+            
+            self.predictioninfo.rtdir = self.elementValue;
+            self.elementValue = "";
+            break;
         default:
             break;
         }
@@ -98,10 +116,3 @@ class getPredictionsModel : NSObject, NSXMLParserDelegate
     
 }
 
-class prediction: NSObject {
-    var stpid = "" ;
-    var rt = "";
-    var prdtm = "";
-    var stpnm = "";
-    var location = CLLocation.init(latitude: 0.0, longitude: 0.0);
-}

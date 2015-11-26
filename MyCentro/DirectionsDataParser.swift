@@ -1,5 +1,5 @@
 //
-//  getRoutesModel.swift
+//  getDirectionsModel.swift
 //  MyCentro
 //
 //  Created by Alok Arya on 11/23/15.
@@ -8,22 +8,28 @@
 
 import Foundation
 
+/************************************************************
+*
+* Parses the XML data from the API call to /getpdirections
+* returns an array of directions for a route
+*
+************************************************************/
 
-
-class getRoutesModel : NSObject, NSXMLParserDelegate
+class DirectionsDataParser : NSObject, NSXMLParserDelegate
 {
     var elementValue = "";                              // to temporarily store XML element values
-    var routesArray = [String]();                       // Holds the uniquely indentified routes
+    var directions = [String]();                        // directions array for route
     
-    
-    func getRoutes(data : NSData) -> [String]
-    {
+    //----get a one way direction of a route -------//
+    func getDirection(data : NSData) -> [String]
+    {        
         let xmlData = NSXMLParser.init(data: data ) ;
         xmlData.delegate = self ;
         xmlData.parse();
-        
-        return routesArray;
+
+        return directions ;
     }
+    
     //-------------XML Parser delegate methods -------------------------//
     func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String])
     {
@@ -32,30 +38,27 @@ class getRoutesModel : NSObject, NSXMLParserDelegate
     
     func parser(parser: NSXMLParser, foundCharacters string: String)
     {
-            self.elementValue += string;
+        self.elementValue += string;
     }
     
     func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?)
     {
         //print(elementValue);
-        if elementName == "rt"
+        if elementName == "dir"
         {
             //cleanup whitespaces
             self.elementValue = self.elementValue.stringByReplacingOccurrencesOfString("\n", withString: "");
             self.elementValue = self.elementValue.stringByReplacingOccurrencesOfString("\t", withString: "");
-                
-            if(self.elementValue[self.elementValue.startIndex] != "A" || self.elementValue[self.elementValue.startIndex] != "R" ) //filtering out routes of Auburn and Rome - not working
-            {
-                    self.routesArray.append(elementValue);
-            }
+            
+            self.directions.append(elementValue);
         }
+
         elementValue = "";
     }
     
     func parserDidEndDocument(parser: NSXMLParser)
     {
-            //print(self.routesArray);
+        //print(self.routesArray);
     }
     //-------End of XML Parser delegates --------------------------------//
-    
 }

@@ -17,7 +17,7 @@ class BusListController: UIViewController,UITableViewDataSource {
     var sourceLocation: CLLocationCoordinate2D?;
     var destinationLocation: CLLocationCoordinate2D? ;
     var busListOf: String?;
-    var centroAPI : CentroBusApiModel;
+    var centroAPI : CentroBusApiCaller;
     @IBOutlet weak var BusListTable: UITableView! ;
     
     convenience init()
@@ -27,13 +27,13 @@ class BusListController: UIViewController,UITableViewDataSource {
     //default initializer
     required init(coder aDecoder: NSCoder)
     {
-        centroAPI = CentroBusApiModel();
+        centroAPI = CentroBusApiCaller();
         super.init(coder: aDecoder)!;
     }
     //designated initializer
     override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!)
     {
-        centroAPI = CentroBusApiModel();
+        centroAPI = CentroBusApiCaller();
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
     }
     
