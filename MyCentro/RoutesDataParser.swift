@@ -51,6 +51,10 @@ class RoutesDataParser : NSObject, NSXMLParserDelegate
         //print(elementValue);
         switch(elementName)
         {
+            case "route":
+                self.routesDictionary[route.rt] = self.route;
+                self.elementValue = "";
+                break;
             case "rt":
                 //cleanup whitespaces
                 self.elementValue = self.elementValue.stringByReplacingOccurrencesOfString("\n", withString: "");
