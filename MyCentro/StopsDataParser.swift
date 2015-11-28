@@ -38,6 +38,8 @@ class StopsDataParser : NSObject, NSXMLParserDelegate
         if elementName == "stop"{
             self.stop = Stop();
         }
+        
+        self.elementValue = "";
     }
     
     func parser(parser: NSXMLParser, foundCharacters string: String)

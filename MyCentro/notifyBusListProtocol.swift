@@ -7,12 +7,15 @@
 //
 
 import Foundation
+import  UIKit
+
+
 
 
 protocol notifyBusListProtocol
 {
     
-    func notifyBusListAvailable(busList: [String], controller: BusListController);
+    func notifyBusListAvailable(busList: [String : [Prediction]], controller: UIViewController);
     
-    func notifyBusListNotAvailable(controller: BusListController);
+    //func notifyBusListNotAvailable(controller: BusListController);
 }

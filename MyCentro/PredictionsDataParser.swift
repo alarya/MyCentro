@@ -39,6 +39,8 @@ class PredictionsDataParser : NSObject, NSXMLParserDelegate
         {
             self.predictioninfo = Prediction();
         }
+        
+        self.elementValue = "";
     }
     
     func parser(parser: NSXMLParser, foundCharacters string: String)

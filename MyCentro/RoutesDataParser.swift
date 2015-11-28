@@ -39,6 +39,8 @@ class RoutesDataParser : NSObject, NSXMLParserDelegate
         {
             self.route = Route.init();
         }
+        
+        self.elementValue = "";
     }
     
     func parser(parser: NSXMLParser, foundCharacters string: String)

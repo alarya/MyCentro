@@ -34,6 +34,7 @@ class DirectionsDataParser : NSObject, NSXMLParserDelegate
     func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String])
     {
         //print(elementName);
+        self.elementValue = "";
     }
     
     func parser(parser: NSXMLParser, foundCharacters string: String)

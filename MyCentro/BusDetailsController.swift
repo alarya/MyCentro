@@ -12,7 +12,25 @@ import CoreLocation
 
 class BusDetailsController: UIViewController
 {
+    var busDetails: BusDetails ;
     
+    convenience init()
+    {
+        self.init(nibName: nil, bundle: nil);
+    }
+    //default initializer
+    required init(coder aDecoder: NSCoder)
+    {
+        self.busDetails = BusDetails();
+        super.init(coder: aDecoder)!;
+    }
+    //designated initializer
+    override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!)
+    {
+        self.busDetails = BusDetails();
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +41,5 @@ class BusDetailsController: UIViewController
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    
+   
 }

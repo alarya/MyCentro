@@ -36,3 +36,14 @@ class Prediction: NSObject
     var vid = "" ;
     var location = CLLocation.init(latitude: 0.0, longitude: 0.0);
 }
+
+class BusDetails: NSObject
+{
+    var sourceName = "";
+    var sourceLocation = CLLocation.init(latitude: 0.0, longitude: 0.0);
+    var sourceTime = "";
+    var destName = "";
+    var destLocation = CLLocation.init(latitude: 0.0, longitude: 0.0);
+    var destTime = "";
+    var intermediateLocations = [CLLocation]();
+}
