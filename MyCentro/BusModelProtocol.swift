@@ -16,7 +16,7 @@ protocol BusModelProtocol
     
     
     //1. Get list of Buses for a (source,destination,time)
-    func getListOfBuses(source: CLLocationCoordinate2D, destination: CLLocationCoordinate2D, departTime: NSDate) -> [String]  ;
+    func getListOfBuses(source: CLLocation, destination: CLLocation, controller: BusListController);
 
 
 }

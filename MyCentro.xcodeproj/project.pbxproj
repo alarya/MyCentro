@@ -8,12 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		686B3AFD1C03BE3C004E6A72 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 686B3AFC1C03BE3C004E6A72 /* Default-568h@2x.png */; settings = {ASSET_TAGS = (); }; };
-		686B3B001C0403B0004E6A72 /* getRoutesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686B3AFF1C0403B0004E6A72 /* getRoutesModel.swift */; settings = {ASSET_TAGS = (); }; };
-		686B3B021C040E1E004E6A72 /* getStopsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686B3B011C040E1E004E6A72 /* getStopsModel.swift */; settings = {ASSET_TAGS = (); }; };
-		686B3B041C0415BB004E6A72 /* getDirectionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686B3B031C0415BB004E6A72 /* getDirectionsModel.swift */; settings = {ASSET_TAGS = (); }; };
+		686B3B001C0403B0004E6A72 /* RoutesDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686B3AFF1C0403B0004E6A72 /* RoutesDataParser.swift */; settings = {ASSET_TAGS = (); }; };
+		686B3B021C040E1E004E6A72 /* StopsDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686B3B011C040E1E004E6A72 /* StopsDataParser.swift */; settings = {ASSET_TAGS = (); }; };
+		686B3B041C0415BB004E6A72 /* DirectionsDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686B3B031C0415BB004E6A72 /* DirectionsDataParser.swift */; settings = {ASSET_TAGS = (); }; };
+		68790ABB1C050E4E00644F8C /* notifyBusListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68790ABA1C050E4E00644F8C /* notifyBusListProtocol.swift */; settings = {ASSET_TAGS = (); }; };
+		68790ABD1C053B8000644F8C /* PredictionsDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68790ABC1C053B8000644F8C /* PredictionsDataParser.swift */; settings = {ASSET_TAGS = (); }; };
+		68790ABF1C06632100644F8C /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68790ABE1C06632100644F8C /* DataModels.swift */; settings = {ASSET_TAGS = (); }; };
+		68790AC11C09389500644F8C /* BusListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68790AC01C09389500644F8C /* BusListTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		68BF8BFD1BFD4CC3003F7437 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BF8BFC1BFD4CC3003F7437 /* Settings.swift */; settings = {ASSET_TAGS = (); }; };
 		68BF8BFF1BFD4EA2003F7437 /* BusModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BF8BFE1BFD4EA2003F7437 /* BusModelProtocol.swift */; settings = {ASSET_TAGS = (); }; };
-		68BF8C011BFD4F87003F7437 /* CentroBusApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BF8C001BFD4F87003F7437 /* CentroBusApiModel.swift */; settings = {ASSET_TAGS = (); }; };
+		68BF8C011BFD4F87003F7437 /* CentroBusApiCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BF8C001BFD4F87003F7437 /* CentroBusApiCaller.swift */; settings = {ASSET_TAGS = (); }; };
+		68C05FDB1C0968E8007A3915 /* SearchBusesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C05FDA1C0968E8007A3915 /* SearchBusesController.swift */; settings = {ASSET_TAGS = (); }; };
 		68F39DE81BFAC9CA005E9695 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F39DE71BFAC9CA005E9695 /* AppDelegate.swift */; };
 		68F39DEA1BFAC9CA005E9695 /* BusListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F39DE91BFAC9CA005E9695 /* BusListController.swift */; };
 		68F39DED1BFAC9CA005E9695 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68F39DEB1BFAC9CA005E9695 /* Main.storyboard */; };
@@ -62,12 +67,17 @@
 
 /* Begin PBXFileReference section */
 		686B3AFC1C03BE3C004E6A72 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		686B3AFF1C0403B0004E6A72 /* getRoutesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = getRoutesModel.swift; sourceTree = "<group>"; };
-		686B3B011C040E1E004E6A72 /* getStopsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = getStopsModel.swift; sourceTree = "<group>"; };
-		686B3B031C0415BB004E6A72 /* getDirectionsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = getDirectionsModel.swift; sourceTree = "<group>"; };
+		686B3AFF1C0403B0004E6A72 /* RoutesDataParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutesDataParser.swift; sourceTree = "<group>"; };
+		686B3B011C040E1E004E6A72 /* StopsDataParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopsDataParser.swift; sourceTree = "<group>"; };
+		686B3B031C0415BB004E6A72 /* DirectionsDataParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsDataParser.swift; sourceTree = "<group>"; };
+		68790ABA1C050E4E00644F8C /* notifyBusListProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = notifyBusListProtocol.swift; sourceTree = "<group>"; };
+		68790ABC1C053B8000644F8C /* PredictionsDataParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PredictionsDataParser.swift; sourceTree = "<group>"; };
+		68790ABE1C06632100644F8C /* DataModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
+		68790AC01C09389500644F8C /* BusListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusListTableViewCell.xib; sourceTree = "<group>"; };
 		68BF8BFC1BFD4CC3003F7437 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		68BF8BFE1BFD4EA2003F7437 /* BusModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusModelProtocol.swift; sourceTree = "<group>"; };
-		68BF8C001BFD4F87003F7437 /* CentroBusApiModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentroBusApiModel.swift; sourceTree = "<group>"; };
+		68BF8C001BFD4F87003F7437 /* CentroBusApiCaller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentroBusApiCaller.swift; sourceTree = "<group>"; };
+		68C05FDA1C0968E8007A3915 /* SearchBusesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBusesController.swift; sourceTree = "<group>"; };
 		68F39DE41BFAC9CA005E9695 /* MyCentro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCentro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68F39DE71BFAC9CA005E9695 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		68F39DE91BFAC9CA005E9695 /* BusListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusListController.swift; sourceTree = "<group>"; };
@@ -140,9 +150,12 @@
 		686B3AFE1C040360004E6A72 /* CentroBusApiModels */ = {
 			isa = PBXGroup;
 			children = (
-				686B3AFF1C0403B0004E6A72 /* getRoutesModel.swift */,
-				686B3B011C040E1E004E6A72 /* getStopsModel.swift */,
-				686B3B031C0415BB004E6A72 /* getDirectionsModel.swift */,
+				686B3AFF1C0403B0004E6A72 /* RoutesDataParser.swift */,
+				686B3B011C040E1E004E6A72 /* StopsDataParser.swift */,
+				686B3B031C0415BB004E6A72 /* DirectionsDataParser.swift */,
+				68790ABC1C053B8000644F8C /* PredictionsDataParser.swift */,
+				68790ABE1C06632100644F8C /* DataModels.swift */,
+				68790ABA1C050E4E00644F8C /* notifyBusListProtocol.swift */,
 			);
 			name = CentroBusApiModels;
 			sourceTree = "<group>";
@@ -185,18 +198,20 @@
 			isa = PBXGroup;
 			children = (
 				68F39DE71BFAC9CA005E9695 /* AppDelegate.swift */,
-				68F39DE91BFAC9CA005E9695 /* BusListController.swift */,
 				68F931411BFAE24F00758BB6 /* MainScreenController.swift */,
+				68F39DE91BFAC9CA005E9695 /* BusListController.swift */,
 				68F931491BFAEF1A00758BB6 /* BusDetailsController.swift */,
+				68C05FDA1C0968E8007A3915 /* SearchBusesController.swift */,
 				68BF8BFC1BFD4CC3003F7437 /* Settings.swift */,
 				68BF8BFE1BFD4EA2003F7437 /* BusModelProtocol.swift */,
-				68BF8C001BFD4F87003F7437 /* CentroBusApiModel.swift */,
+				68BF8C001BFD4F87003F7437 /* CentroBusApiCaller.swift */,
 				686B3AFE1C040360004E6A72 /* CentroBusApiModels */,
 				68F39DEB1BFAC9CA005E9695 /* Main.storyboard */,
 				68F39DF11BFAC9CA005E9695 /* Assets.xcassets */,
 				68F39DF31BFAC9CA005E9695 /* LaunchScreen.storyboard */,
 				68F39DF61BFAC9CA005E9695 /* Info.plist */,
 				68F39DEE1BFAC9CA005E9695 /* MyCentro.xcdatamodeld */,
+				68790AC01C09389500644F8C /* BusListTableViewCell.xib */,
 			);
 			path = MyCentro;
 			sourceTree = "<group>";
@@ -328,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				68F39DF51BFAC9CA005E9695 /* LaunchScreen.storyboard in Resources */,
+				68790AC11C09389500644F8C /* BusListTableViewCell.xib in Resources */,
 				686B3AFD1C03BE3C004E6A72 /* Default-568h@2x.png in Resources */,
 				68F39DF21BFAC9CA005E9695 /* Assets.xcassets in Resources */,
 				68F39DED1BFAC9CA005E9695 /* Main.storyboard in Resources */,
@@ -357,14 +373,18 @@
 			files = (
 				68BF8BFF1BFD4EA2003F7437 /* BusModelProtocol.swift in Sources */,
 				68BF8BFD1BFD4CC3003F7437 /* Settings.swift in Sources */,
-				68BF8C011BFD4F87003F7437 /* CentroBusApiModel.swift in Sources */,
-				686B3B001C0403B0004E6A72 /* getRoutesModel.swift in Sources */,
+				68BF8C011BFD4F87003F7437 /* CentroBusApiCaller.swift in Sources */,
+				68790ABB1C050E4E00644F8C /* notifyBusListProtocol.swift in Sources */,
+				686B3B001C0403B0004E6A72 /* RoutesDataParser.swift in Sources */,
+				68790ABD1C053B8000644F8C /* PredictionsDataParser.swift in Sources */,
 				68F39DEA1BFAC9CA005E9695 /* BusListController.swift in Sources */,
+				68C05FDB1C0968E8007A3915 /* SearchBusesController.swift in Sources */,
 				68F39DE81BFAC9CA005E9695 /* AppDelegate.swift in Sources */,
-				686B3B021C040E1E004E6A72 /* getStopsModel.swift in Sources */,
+				686B3B021C040E1E004E6A72 /* StopsDataParser.swift in Sources */,
 				68F931421BFAE24F00758BB6 /* MainScreenController.swift in Sources */,
 				68F39DF01BFAC9CA005E9695 /* MyCentro.xcdatamodeld in Sources */,
-				686B3B041C0415BB004E6A72 /* getDirectionsModel.swift in Sources */,
+				68790ABF1C06632100644F8C /* DataModels.swift in Sources */,
+				686B3B041C0415BB004E6A72 /* DirectionsDataParser.swift in Sources */,
 				68F9314A1BFAEF1A00758BB6 /* BusDetailsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
