@@ -18,9 +18,11 @@ class BusListController: UIViewController,UITableViewDataSource {
     var destinationLocation: CLLocationCoordinate2D? ;
     var busListOf: String?;
     var centroAPI : CentroBusApiCaller;
-    var busList : [Prediction];
+    var busList : [PredictionObject];
     
     @IBOutlet weak var BusListTable: UITableView! ;
+    
+    @IBOutlet weak var ViewMessage: UILabel!
     
     convenience init()
     {
@@ -30,14 +32,14 @@ class BusListController: UIViewController,UITableViewDataSource {
     required init(coder aDecoder: NSCoder)
     {
         centroAPI = CentroBusApiCaller();
-        busList = [Prediction]();
+        busList = [PredictionObject]();
         super.init(coder: aDecoder)!;
     }
     //designated initializer
     override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!)
     {
         centroAPI = CentroBusApiCaller();
-        busList = [Prediction]();
+        busList = [PredictionObject]();
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
     }
     
@@ -50,18 +52,27 @@ class BusListController: UIViewController,UITableViewDataSource {
         let nib = UINib(nibName: "BusListTableViewCell" , bundle: nil);
         BusListTable.registerNib(nib, forCellReuseIdentifier: "BusListCell");
         
+        ViewMessage.hidden = true ;
+        
         //------------------
         if(busListOf != nil)
         {
             if(busListOf == "BusListToHome")
             {
-                //let source = CLLocation.init(latitude: 43.043317, longitude: -76.151389);
-                //let destination = CLLocation.init(latitude: 43.076548, longitude: -76.169244);
+                let source = CLLocation.init(latitude: 43.043317, longitude: -76.151389);
+                let destination = CLLocation.init(latitude: 43.076548, longitude: -76.169244);
 
-                //centroAPI.getListOfBuses(source, destination: destination, controller : self);
+                centroAPI.getListOfBuses(source, destination: destination, controller : self);
          
             }
             else if(busListOf == "BusListToWork")
+            {
+                let source = CLLocation.init(latitude: 43.043317, longitude: -76.151389);    //SU
+                let destination = CLLocation.init(latitude: 43.076548, longitude: -76.169244);  //Irving Ave Harrison St
+                
+                centroAPI.getListOfBuses(source, destination: destination, controller : self);
+            }
+            else if(busListOf == "CustomRouteBuses")
             {
                 
             }
@@ -74,23 +85,22 @@ class BusListController: UIViewController,UITableViewDataSource {
         }
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func updateTableView(predictionList: [String:[Prediction]])
+    func updateTableView(predictionList: [PredictionObject])
     {
-        for route in predictionList.keys{
-            for prediction in predictionList[route]!
-            {
-                self.busList.append(prediction);
-            }
+        for prediction in predictionList
+        {
+            self.busList.append(prediction);
         }
-        
+
         dispatch_sync(dispatch_get_main_queue(), {
             self.BusListTable.reloadData();
-            });
+        });
     }
     
     //----------UI Table View delegate methods ----------------------//
@@ -99,23 +109,39 @@ class BusListController: UIViewController,UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("BusListCell") as! BusListTableViewCell ;
         
-        //let busStop = self.busList[indexPath.row].stpnm;
-        //let busDepartTime = self.busList[indexPath.row].prdtm;
+        let route = self.busList[indexPath.row].rt + ": " + self.busList[indexPath.row].rtnm;
+        let src = self.busList[indexPath.row].sourcestpnm;
+        let dest = self.busList[indexPath.row].deststpnm;
+        let srctm = self.busList[indexPath.row].sourceprdtm.componentsSeparatedByString(" ").last ;
+        let desttm = self.busList[indexPath.row].destprdtm.componentsSeparatedByString(" ").last ;
         
-        //cell.textLabel?.text = busStop;
-        //cell.detailTextLabel?.text = busDepartTime;
+        print(self.busList);
+        // test
+        //cell.loadCell("Westcott", sourceName: "destinty", sourceTime: "15:00", destName: "College Place", destTime: "15:30") ;
         
-        cell.loadCell("Westcott", sourceName: "destinty", sourceTime: "15:00", destName: "College Place", destTime: "15:30")
+        cell.loadCell(route, sourceName: src, sourceTime: srctm!, destName: dest, destTime: desttm!) ;
         
         return cell;
         
     }
  
-    func tableView(tableView: UITableView,
-        numberOfRowsInSection section: Int) -> Int
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        //return busList.count;
-        return 3;
+        if self.busList.count == 0
+        {
+            ViewMessage.hidden = false;
+            BusListTable.hidden = true;
+            ViewMessage.text = "No Services on this route currently ..." ;
+        }
+        else
+        {
+            ViewMessage.hidden = true;
+            ViewMessage.text = "" ;
+            BusListTable.hidden = false;
+            return self.busList.count;
+        }
+        
+        return 0;
     }
     //--------End of UI Table View delegate methods -----------------//
     

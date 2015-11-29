@@ -68,9 +68,9 @@ class CentroBusApiCaller : NSObject, BusModelProtocol, NSXMLParserDelegate{
     var destination = CLLocation();
     var routesDictionary = [String : Route]();          // maintains route info:   key - route , value - routeinfo
     var routesStopDictionary = [String : [Stop]]();     // maintains Stops info:   key - route , value - Array of Stops
-    var predictionsRoutes = [String : [String : Stop]]();         // stores which possible routes and it's stops match the search criteria
+    var predictionsRoutes = [String : [Stop]]();         // stores which possible routes and it's stops match the search criteria
     var stopsInfo = [String : Stop ]() ;             // maintains stops info: key - stopid , value - stop
-    var predictionsTimes = [String :[Prediction]](); // maintains predicted timings info - key - route, value - predictions for source and dest
+    var predictionsList = [PredictionObject](); // maintains predicted timings info - key - route, value - predictions for source and dest
     
     
     //----------------------protocol methods --------------------------//
@@ -81,7 +81,7 @@ class CentroBusApiCaller : NSObject, BusModelProtocol, NSXMLParserDelegate{
         //reintialize predictionRoutes for each call
         self.predictionsRoutes.removeAll();
         //reintialize predictionTimes for each call
-        self.predictionsTimes.removeAll();
+        self.predictionsList.removeAll();
         
         self.source = source;
         self.destination = destination;
@@ -190,10 +190,6 @@ class CentroBusApiCaller : NSObject, BusModelProtocol, NSXMLParserDelegate{
             taskGetDirection.resume();
         }
         
-        //After all routes have been analyzed we'll have the data
-        //of list of possibleStops
-        //call get predictions for these routes,[stops]
-        //self.getPredictions();
     }
     
     func getStops(route : String , direction : String, controller: BusListController )
@@ -261,46 +257,34 @@ class CentroBusApiCaller : NSObject, BusModelProtocol, NSXMLParserDelegate{
             //and save them to be later used for prediction
             let stopLocation = CLLocation.init(latitude: stop.lat, longitude: stop.lon);
             distance = self.source.distanceFromLocation(stopLocation);
-                if (distance < closestSourceStopDist && Double(distance) < self.acceptableRange)
-                {
-                    closestSourceStopDist = distance;
-                    source = stop;
-                    //print("A possible source was found ----------------------------");
-                }
-                distance = self.destination.distanceFromLocation(stopLocation);
-                if (distance < closestDestinationStopDist && Double(distance) < self.acceptableRange)
-                {
-                    closestDestinationStopDist = distance;
-                    dest = stop ;
-                    //print("A possible destination was found ----------------------------");
-                }
-            }
-            
-            //if found two different stops as source and destination
-            //add them to possible stops dictionary with key as the route
-            if(source.stpid != dest.stpid)
+            if (distance < closestSourceStopDist && Double(distance) < self.acceptableRange)
             {
-                print("Added possible routes---------------------------")
-                //if(self.predictionsRoutes[route] == nil)
-                //{
-                //    self.predictionsRoutes[route] = [source] ;
-                //    self.predictionsRoutes[route]?.append(dest);
-                //}
-                //else
-                //{
-                //    self.predictionsRoutes[route]?.append(source) ;
-                //    self.predictionsRoutes[route]?.append(dest);
-
-                //}
-                var _stop = [String :Stop]();
-                _stop["source"] = source ;
-                _stop["dest"] = dest ;
-                self.predictionsRoutes[route] = _stop;
-
+                closestSourceStopDist = distance;
+                source = stop;
+                //print("A possible source was found ----------------------------");
             }
+            distance = self.destination.distanceFromLocation(stopLocation);
+            if (distance < closestDestinationStopDist && Double(distance) < self.acceptableRange)
+            {
+                closestDestinationStopDist = distance;
+                dest = stop ;
+                //print("A possible destination was found ----------------------------");
+            }
+        }
             
-            //print("--------prediction for possible routes-------------");
-            //print(self.predictionsRoutes);
+        //if found two different stops as source and destination
+        //add them to possible stops dictionary with key as the route
+        if(source.stpid != dest.stpid && source.lat != 0.0 && source.lon != 0.0 && dest.lat != 0.0 && dest.lon != 0.0)
+        {
+            print("Added possible routes---------------------------");
+            source.type = "source";
+            self.predictionsRoutes[route] = [source] ;
+            dest.type = "dest";
+            self.predictionsRoutes[route]?.append(dest);
+        }
+            
+        //print("--------prediction for possible routes-------------");
+        //print(self.predictionsRoutes);
         
         self.getPredictionsTimes(route, controller: controller);
     }
@@ -312,16 +296,15 @@ class CentroBusApiCaller : NSObject, BusModelProtocol, NSXMLParserDelegate{
     {
 
         //predictions for each route in predictionsRoutes dictionary
-        if( predictionsRoutes[route] != nil)
+        if( self.predictionsRoutes[route] != nil)
         {
             let requestGenerator = URLgenerator();
             requestGenerator.action = "getpredictions" ;
             //arguments for API call
             var stops = "";
-            var _stops:[String:Stop] = predictionsRoutes[route]!;
-            stops += (_stops["source"]?.stpid)!;
+            stops += (self.predictionsRoutes[route]?.first?.stpid)! ;
             stops += ","
-            stops += (_stops["dest"]?.stpid)!;
+            stops += (self.predictionsRoutes[route]?.last?.stpid)! ;
             requestGenerator.arguments["stpid"] = stops;
             
             URL = NSURL.init(string: requestGenerator.request)!;
@@ -349,29 +332,65 @@ class CentroBusApiCaller : NSObject, BusModelProtocol, NSXMLParserDelegate{
                     let predictionsDataParser = PredictionsDataParser();
                     let predictions = predictionsDataParser.getPredictions(data!);
                     
-                    if predictions.count != 0
-                    {
-                        for prediction in predictions
-                        {
-                            print("=====prediction=====");
-                            print(prediction.stpid);
-                            print(prediction.rt);
-                            print(prediction.prdtm);
-                        
-                            //add location information to the prediction
-                            prediction.location = CLLocation.init(latitude: self.stopsInfo[prediction.stpid]!.lat, longitude: self.stopsInfo[prediction.stpid]!.lon);
-                            
-                            
-                        }
-                        
-                        if(route == predictions.first?.rt){                      //temp fix
-                            self.predictionsTimes[route] = predictions;
-                        }
-                        print("---------prediction with timings ------------")
-                        print(self.predictionsTimes);
+                    var sourcestpid = "" ;
+                    var deststpid = "" ;
                     
+                    for stop in self.predictionsRoutes[route]!
+                    {
+                        if stop.type == "source"
+                        {
+                            sourcestpid  = stop.stpid ;
+                        }
+                        else
+                        {
+                            deststpid = stop.stpid ;
+                        }
+                    }
+                    
+                    let predictionObject = PredictionObject();
+                    //iterate stops for only the route we are interested in
+                    if(predictions[route] != nil)
+                    {
+                        if(predictions[route]?.count != 2)
+                        {
+                            for prediction in predictions[route]!
+                            {
+                                //take 1st two prediction stops as they will be source,dest
+                                // TO - DO : make sure source prd time <= dest prd time
+                        
+                                if(prediction.stpid == sourcestpid)
+                                {
+                                    predictionObject.sourcestpid = prediction.stpid ;
+                                    predictionObject.sourceprdtm = prediction.prdtm ;
+                                    predictionObject.sourcestpnm = prediction.stpnm ;
+                                    //add location info
+                                    predictionObject.sourcelocation = CLLocation.init(latitude: self.stopsInfo[prediction.stpid]!.lat, longitude: self.stopsInfo[prediction.stpid]!.lon);
+                                }
+                                else if prediction.stpid == deststpid
+                                {
+                                    predictionObject.deststpid = prediction.stpid ;
+                                    predictionObject.destprdtm = prediction.prdtm ;
+                                    predictionObject.deststpnm = prediction.stpnm ;
+                                    //add location info
+                                    predictionObject.destlocation = CLLocation.init(latitude: self.stopsInfo[prediction.stpid]!.lat, longitude: self.stopsInfo[prediction.stpid]!.lon);
+                                }
+         
+                                predictionObject.rt = route ;
+                                predictionObject.rtnm = (self.routesDictionary[route]?.rtnm)!;
+                                predictionObject.rtdir = prediction.rtdir;
+                                predictionObject.vid = prediction.vid ;
+                            }
+                            self.predictionsList.append(predictionObject);
+                            print("---------prediction with timings ------------")
+                            print(self.predictionsList);
+                        }
                         self.returnBusList(controller);
                     }
+                    else
+                    {
+                        //No predictions returned currently
+                    }
+                    
                 }
             });
             
@@ -385,7 +404,7 @@ class CentroBusApiCaller : NSObject, BusModelProtocol, NSXMLParserDelegate{
         
         print("Sending prediction times to the controller.....");
         
-        controller.updateTableView(self.predictionsTimes);
+        controller.updateTableView(self.predictionsList);
     }
     
 }

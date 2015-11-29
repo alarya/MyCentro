@@ -24,6 +24,7 @@ class Stop: NSObject
     var stpnm = "";
     var lat : Double = 0.0;
     var lon : Double = 0.0;
+    var type = "" ;          //source or dest
 }
 
 class Prediction: NSObject
@@ -35,6 +36,22 @@ class Prediction: NSObject
     var stpnm = "" ;
     var vid = "" ;
     var location = CLLocation.init(latitude: 0.0, longitude: 0.0);
+}
+
+class PredictionObject : NSObject
+{
+    var sourcestpid = "" ;
+    var deststpid = "" ;
+    var rt = "" ;
+    var rtdir = "";
+    var rtnm = "";
+    var sourceprdtm = "" ;
+    var destprdtm = "" ;
+    var sourcestpnm = "" ;
+    var deststpnm = "" ;
+    var vid = "" ;
+    var sourcelocation = CLLocation.init(latitude: 0.0, longitude: 0.0);
+    var destlocation = CLLocation.init(latitude: 0.0, longitude: 0.0);
 }
 
 class BusDetails: NSObject
