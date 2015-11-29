@@ -351,7 +351,7 @@ class CentroBusApiCaller : NSObject, BusModelProtocol, NSXMLParserDelegate{
                     //iterate stops for only the route we are interested in
                     if(predictions[route] != nil)
                     {
-                        if(predictions[route]?.count != 2)
+                        if(predictions[route]?.count >= 2)
                         {
                             for prediction in predictions[route]!
                             {

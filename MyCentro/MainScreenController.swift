@@ -49,9 +49,6 @@ class MainScreenController: UIViewController {
             {
                 destinationVC.title = "Bus to Home";
                 
-                //mock data
-                destinationVC.departBusStop = ["College Place", "College Place", "College Place"] ;
-                destinationVC.departTime = ["9:30", "10:00", "11:30"];
                 destinationVC.busListOf = "BusListToHome";
             }
         }
@@ -61,12 +58,8 @@ class MainScreenController: UIViewController {
             {
                 destinationVC.title = "Bus to Work";
                 
-                //mock data
-                destinationVC.departBusStop =  ["East Genessee & Westcott", "East Genessee & Westcott", "East Genessee & Westcott"] ;
-                destinationVC.departTime = ["3:30", "4:00", "5:00"];
                 destinationVC.busListOf = "BusListToWork";
             }
         }
-
     }
 }

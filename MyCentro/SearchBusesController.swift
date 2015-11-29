@@ -266,7 +266,12 @@ class SearchBusesController: UIViewController, UITextFieldDelegate, CLLocationMa
                     self.destSuggestions.reloadData();
                 }
             });
-
+        }
+        else
+        {
+            self.destSuggestionsArray.removeAll();
+            
+            self.destSuggestions.hidden = true ;
         }
     }
     
@@ -298,4 +303,29 @@ class SearchBusesController: UIViewController, UITextFieldDelegate, CLLocationMa
     }
     
     //----------End of CLLocationManager delegate methods ----------------------------//
+    
+    //-----------UI Button Event ------------------------//
+    @IBAction func searchBuses(sender: UIButton)
+    {
+        //performSegueWithIdentifier("SearchBuses", sender: sender);
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if segue.identifier == "SearchBuses"
+        {
+            if let destinationVC = segue.destinationViewController as? BusListController
+            {
+                destinationVC.title = "Bus: Custom Route";
+                
+                //mock data
+                destinationVC.sourceLocation = CLLocationCoordinate2D.init(latitude: self.sourceLocationSelected.coordinate.latitude,
+                    longitude: self.sourceLocationSelected.coordinate.longitude) ;
+                destinationVC.destinationLocation = CLLocationCoordinate2D.init(latitude: self.destLocationSelected.coordinate.latitude,
+                    longitude: self.destLocationSelected.coordinate.longitude) ;
+                destinationVC.busListOf = "CustomRouteBuses";
+            }
+        }
+    }
+    
 }

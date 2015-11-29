@@ -12,7 +12,11 @@ import CoreLocation
 
 class BusDetailsController: UIViewController
 {
-    var busDetails: BusDetails ;
+    var busDetails: PredictionObject ;
+    @IBOutlet weak var sourceName: UILabel!
+    @IBOutlet weak var destName: UILabel!
+    @IBOutlet weak var sourceTime: UILabel!
+    @IBOutlet weak var destTime: UILabel!
     
     convenience init()
     {
@@ -21,25 +25,29 @@ class BusDetailsController: UIViewController
     //default initializer
     required init(coder aDecoder: NSCoder)
     {
-        self.busDetails = BusDetails();
+        self.busDetails = PredictionObject();
         super.init(coder: aDecoder)!;
     }
     //designated initializer
     override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!)
     {
-        self.busDetails = BusDetails();
+        self.busDetails = PredictionObject();
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
     }
-
-    
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.sourceName.text = self.busDetails.sourcestpnm ;
+        self.destName.text = self.busDetails.deststpnm ;
+        self.sourceTime.text = self.busDetails.sourceprdtm.componentsSeparatedByString(" ").last ;
+        self.destTime.text = self.busDetails.destprdtm.componentsSeparatedByString(" ").last ; 
     }
     
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-   
 }

@@ -10,10 +10,9 @@ import UIKit
 import CoreLocation
 
 
-class BusListController: UIViewController,UITableViewDataSource {
+class BusListController: UIViewController,UITableViewDataSource, UITableViewDelegate {
 
     var departBusStop = [String]();
-    var departTime = [String]();
     var sourceLocation: CLLocationCoordinate2D?;
     var destinationLocation: CLLocationCoordinate2D? ;
     var busListOf: String?;
@@ -52,6 +51,8 @@ class BusListController: UIViewController,UITableViewDataSource {
         let nib = UINib(nibName: "BusListTableViewCell" , bundle: nil);
         BusListTable.registerNib(nib, forCellReuseIdentifier: "BusListCell");
         
+        BusListTable.delegate = self ;
+        
         ViewMessage.hidden = true ;
         
         //------------------
@@ -67,14 +68,17 @@ class BusListController: UIViewController,UITableViewDataSource {
             }
             else if(busListOf == "BusListToWork")
             {
-                let source = CLLocation.init(latitude: 43.043317, longitude: -76.151389);    //SU
-                let destination = CLLocation.init(latitude: 43.076548, longitude: -76.169244);  //Irving Ave Harrison St
+                let source = CLLocation.init(latitude: 43.038572, longitude: -76.134517 );    //SU
+                let destination = CLLocation.init(latitude: 43.049577, longitude: -76.150281);  //Irving Ave Harrison St
                 
                 centroAPI.getListOfBuses(source, destination: destination, controller : self);
             }
             else if(busListOf == "CustomRouteBuses")
             {
+                let source = CLLocation.init(latitude: (self.sourceLocation?.latitude)!, longitude: (self.sourceLocation?.longitude)!);
+                let destination = CLLocation.init(latitude: (self.destinationLocation?.latitude)!, longitude: (self.destinationLocation?.longitude)!);
                 
+                centroAPI.getListOfBuses(source, destination: destination, controller : self);
             }
         }
         else
@@ -96,6 +100,7 @@ class BusListController: UIViewController,UITableViewDataSource {
         for prediction in predictionList
         {
             self.busList.append(prediction);
+            self.busList.append(PredictionObject());
         }
 
         dispatch_sync(dispatch_get_main_queue(), {
@@ -143,6 +148,10 @@ class BusListController: UIViewController,UITableViewDataSource {
         
         return 0;
     }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    {
+        performSegueWithIdentifier("BusDetails", sender: tableView);
+    }
     //--------End of UI Table View delegate methods -----------------//
     
     
@@ -151,15 +160,9 @@ class BusListController: UIViewController,UITableViewDataSource {
     {
         if segue.identifier == "BusDetails"
         {
-            //let selectedCellIndex = BusListTable.indexPathForSelectedRow ;
-            //let trip = BusListTable.cellForRowAtIndexPath(selectedCellIndex!) ;
-   
             let destController = segue.destinationViewController as? BusDetailsController;
-            let busDetails = BusDetails();
-            busDetails.sourceName = "Source";
-            busDetails.sourceTime = "15:00";
-            busDetails.destName = "Destination";
-            busDetails.destTime = "15:30";
+            let tableview = sender as? UITableView ;
+            let busDetails = self.busList[(tableview?.indexPathForSelectedRow?.row)!];
             destController!.busDetails = busDetails;
         }
     }
