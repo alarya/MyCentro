@@ -69,6 +69,9 @@ class SearchBusesController: UIViewController, UITextFieldDelegate, CLLocationMa
         sourceSuggestions.dataSource = self ;
         destSuggestions.dataSource = self ;
         locationManager.startUpdatingLocation();
+        
+        sourceSuggestions.hidden = true;
+        destSuggestions.hidden = true;
     }
     
     override func didReceiveMemoryWarning()
@@ -79,10 +82,10 @@ class SearchBusesController: UIViewController, UITextFieldDelegate, CLLocationMa
     
     //----------------UITableView delegate and datasource protocol methods ------------//
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
-    {
-        return 60.0 ;
-    }
+    //func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+    //{
+    //    return 60.0 ;
+    //}
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         if tableView == sourceSuggestions
@@ -109,8 +112,11 @@ class SearchBusesController: UIViewController, UITextFieldDelegate, CLLocationMa
                 address += self.sourceSuggestionsArray[indexPath.row].subLocality! ;
                 address += ", ";
             }
-            address += self.sourceSuggestionsArray[indexPath.row].administrativeArea! ;
-            address += ", " ;
+            if self.sourceSuggestionsArray[indexPath.row].administrativeArea != nil
+            {
+                address += self.sourceSuggestionsArray[indexPath.row].administrativeArea! ;
+                address += ", " ;
+            }
             address += self.sourceSuggestionsArray[indexPath.row].country! ;
             
             cell!.textLabel?.text = address ;
@@ -162,9 +168,9 @@ class SearchBusesController: UIViewController, UITextFieldDelegate, CLLocationMa
         if(tableView == sourceSuggestions)
         {
             //limit suggestions to only 4 addresses
-            if sourceSuggestionsArray.count > 4
+            if sourceSuggestionsArray.count > 7
             {
-                return 4 ;
+                return 7 ;
             }
             else
             {
@@ -174,9 +180,9 @@ class SearchBusesController: UIViewController, UITextFieldDelegate, CLLocationMa
             
         else if (tableView == destSuggestions)
         {
-            if destSuggestionsArray.count > 4
+            if destSuggestionsArray.count > 7
             {
-                return 4;
+                return 7;
             }
             else
             {
@@ -230,6 +236,12 @@ class SearchBusesController: UIViewController, UITextFieldDelegate, CLLocationMa
                     self.sourceSuggestions.reloadData();
                 }
             });
+        }
+        else
+        {
+            self.sourceSuggestionsArray.removeAll();
+            
+            self.sourceSuggestions.hidden = true ;
         }
     }
     
