@@ -199,9 +199,9 @@
 			children = (
 				68F39DE71BFAC9CA005E9695 /* AppDelegate.swift */,
 				68F931411BFAE24F00758BB6 /* MainScreenController.swift */,
+				68C05FDA1C0968E8007A3915 /* SearchBusesController.swift */,
 				68F39DE91BFAC9CA005E9695 /* BusListController.swift */,
 				68F931491BFAEF1A00758BB6 /* BusDetailsController.swift */,
-				68C05FDA1C0968E8007A3915 /* SearchBusesController.swift */,
 				68BF8BFC1BFD4CC3003F7437 /* Settings.swift */,
 				68BF8BFE1BFD4EA2003F7437 /* BusModelProtocol.swift */,
 				68BF8C001BFD4F87003F7437 /* CentroBusApiCaller.swift */,

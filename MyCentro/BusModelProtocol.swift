@@ -18,5 +18,6 @@ protocol BusModelProtocol
     //1. Get list of Buses for a (source,destination,time)
     func getListOfBuses(source: CLLocation, destination: CLLocation, controller: BusListController);
 
-
+    //2. Get stops b/w source and destination of a route 
+    func stopsBetweenSourceDest(sourceStpId: String, destStpId: String, route: String, routeDir: String, controller: BusDetailsController)
 }

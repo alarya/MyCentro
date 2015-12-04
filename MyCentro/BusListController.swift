@@ -51,6 +51,36 @@ class BusListController: UIViewController,UITableViewDataSource, UITableViewDele
         let nib = UINib(nibName: "BusListTableViewCell" , bundle: nil);
         BusListTable.registerNib(nib, forCellReuseIdentifier: "BusListCell");
         
+        //mock data for test
+        let mock1 = PredictionObject() ;
+        mock1.sourcelocation = CLLocation.init(latitude: 43.012135659673, longitude: -76.11685395240801);
+        mock1.destlocation = CLLocation.init(latitude: 43.016497338119, longitude: -76.11913383006998) ;
+        mock1.sourcestpnm = "621 SKYTOP RD" ;
+        mock1.deststpnm = "GOLDSTEIN STUDENT CENTER" ;
+        mock1.sourceprdtm = "15:00";
+        mock1.destprdtm = "16:00";
+        mock1.rtnm = "South Campus" ;
+        mock1.sourcestpid = "17481";
+        mock1.deststpid = "17368";
+        mock1.rtdir = "FROM CAMPUS";
+        mock1.rt = "344" ;
+        self.busList.append(mock1);
+        
+        let mock2 = PredictionObject();
+        mock2.sourcelocation = CLLocation.init(latitude: 43.037258730599916, longitude: -76.13144158691938);
+        mock2.destlocation = CLLocation.init(latitude: 43.035877956259, longitude: -76.13923430442799) ;
+        mock2.sourcestpnm = "COLLEGE PLACE" ;
+        mock2.deststpnm = "E RAYNOR AVE + STADIUM PL" ;
+        mock2.sourceprdtm = "15:30";
+        mock2.destprdtm = "16:30";
+        mock2.rtnm = "Connective Corridor" ;
+        mock2.sourcestpid = "1683";
+        mock2.deststpid = "1675";
+        mock2.rtdir = "FROM CAMPUS";
+        mock2.rt = "443" ;
+        self.busList.append(mock2);
+        //-----------------------
+        
         BusListTable.delegate = self ;
         
         ViewMessage.hidden = true ;
@@ -60,18 +90,18 @@ class BusListController: UIViewController,UITableViewDataSource, UITableViewDele
         {
             if(busListOf == "BusListToHome")
             {
-                let source = CLLocation.init(latitude: 43.043317, longitude: -76.151389);
-                let destination = CLLocation.init(latitude: 43.076548, longitude: -76.169244);
+                //let source = CLLocation.init(latitude: 43.043317, longitude: -76.151389);
+                //let destination = CLLocation.init(latitude: 43.076548, longitude: -76.169244);
 
-                centroAPI.getListOfBuses(source, destination: destination, controller : self);
+                //centroAPI.getListOfBuses(source, destination: destination, controller : self);
          
             }
             else if(busListOf == "BusListToWork")
             {
-                let source = CLLocation.init(latitude: 43.038572, longitude: -76.134517 );    //SU
-                let destination = CLLocation.init(latitude: 43.049577, longitude: -76.150281);  //Irving Ave Harrison St
+                //let source = CLLocation.init(latitude: 43.038572, longitude: -76.134517 );    //SU
+                //let destination = CLLocation.init(latitude: 43.049577, longitude: -76.150281);  //Irving Ave Harrison St
                 
-                centroAPI.getListOfBuses(source, destination: destination, controller : self);
+                //centroAPI.getListOfBuses(source, destination: destination, controller : self);
             }
             else if(busListOf == "CustomRouteBuses")
             {
@@ -87,6 +117,7 @@ class BusListController: UIViewController,UITableViewDataSource, UITableViewDele
             
             //could not find any list of Buses
         }
+        
     }
 
     override func didReceiveMemoryWarning()
@@ -100,8 +131,9 @@ class BusListController: UIViewController,UITableViewDataSource, UITableViewDele
         for prediction in predictionList
         {
             self.busList.append(prediction);
-            self.busList.append(PredictionObject());
         }
+        
+
 
         dispatch_sync(dispatch_get_main_queue(), {
             self.BusListTable.reloadData();
@@ -164,6 +196,7 @@ class BusListController: UIViewController,UITableViewDataSource, UITableViewDele
             let tableview = sender as? UITableView ;
             let busDetails = self.busList[(tableview?.indexPathForSelectedRow?.row)!];
             destController!.busDetails = busDetails;
+            destController!.title = "Bus Details" ;
         }
     }
 }

@@ -57,8 +57,8 @@ class URLgenerator : NSObject
 */
 class CentroBusApiCaller : NSObject, BusModelProtocol, NSXMLParserDelegate{
     
-    var URL = NSURL() ;
-    var URLRequest = NSURLRequest() ;
+    //var URL = NSURL() ;
+    //var URLRequest = NSURLRequest() ;
     let session = NSURLSession.sharedSession();
 
     
@@ -97,8 +97,8 @@ class CentroBusApiCaller : NSObject, BusModelProtocol, NSXMLParserDelegate{
             //--------get all routes--------------
             let requestGenerator = URLgenerator();
             requestGenerator.action = "getroutes" ;
-            URL = NSURL.init(string: requestGenerator.request)!;
-            URLRequest = NSURLRequest.init(URL: URL);
+            let URL = NSURL.init(string: requestGenerator.request)!;
+            let URLRequest = NSURLRequest.init(URL: URL);
             
             
             print("Calling: ");
@@ -148,8 +148,8 @@ class CentroBusApiCaller : NSObject, BusModelProtocol, NSXMLParserDelegate{
             reqquestGenerator.action = "getdirections" ;
             reqquestGenerator.arguments.removeAll();
             reqquestGenerator.arguments["rt"] = route ;
-            URL = NSURL.init(string: reqquestGenerator.request)!;
-            URLRequest = NSURLRequest.init(URL: URL);
+            let URL = NSURL.init(string: reqquestGenerator.request)!;
+            let URLRequest = NSURLRequest.init(URL: URL);
             
             print("Calling: ");
             print(reqquestGenerator.request);
@@ -200,8 +200,8 @@ class CentroBusApiCaller : NSObject, BusModelProtocol, NSXMLParserDelegate{
         requestGenerator.arguments.removeAll();
         requestGenerator.arguments["rt"] = route;
         requestGenerator.arguments["dir"] = direction;
-        URL = NSURL.init(string: requestGenerator.request)!;
-        URLRequest = NSURLRequest.init(URL: URL);
+        let URL = NSURL.init(string: requestGenerator.request)!;
+        let URLRequest = NSURLRequest.init(URL: URL);
         
         print("Calling: ");
         print(requestGenerator.request);
@@ -307,8 +307,8 @@ class CentroBusApiCaller : NSObject, BusModelProtocol, NSXMLParserDelegate{
             stops += (self.predictionsRoutes[route]?.last?.stpid)! ;
             requestGenerator.arguments["stpid"] = stops;
             
-            URL = NSURL.init(string: requestGenerator.request)!;
-            URLRequest = NSURLRequest.init(URL: URL);
+            let URL = NSURL.init(string: requestGenerator.request)!;
+            let URLRequest = NSURLRequest.init(URL: URL);
             
         
             print("Calling: ");
@@ -396,6 +396,75 @@ class CentroBusApiCaller : NSObject, BusModelProtocol, NSXMLParserDelegate{
             
             taskGetPredictions.resume();
         }
+    }
+    
+    func stopsBetweenSourceDest(sourceStpId: String, destStpId: String, route: String, routeDir: String, controller: BusDetailsController)
+    {
+        let requestGenerator = URLgenerator() ;
+        requestGenerator.action = "getstops" ;
+        requestGenerator.arguments.removeAll();
+        requestGenerator.arguments["rt"] = route;
+        requestGenerator.arguments["dir"] = routeDir;
+        let URL = NSURL.init(string: requestGenerator.request)!;
+        let URLRequest = NSURLRequest.init(URL: URL);
+        
+        print("Calling: ");
+        print(requestGenerator.request);
+        
+        let taskGetStops : NSURLSessionDataTask = session.dataTaskWithRequest(URLRequest, completionHandler: {
+            (data: NSData?,response: NSURLResponse?,error: NSError?) -> Void in
+            
+            if error != nil
+            {
+                print("Error in getting stops between specified source and dest");
+            }
+            else
+            {
+                //get all stops of a route
+                let stopsDataParser = StopsDataParser();
+                var stops = stopsDataParser.getStops(data!) ;
+                
+                //remove stops before source(inclusive)
+                var indexOfSource = -1 ;
+                var count = 0 ;
+                for stop in stops
+                {
+                    if(stop.stpid == sourceStpId)
+                    {
+                        indexOfSource = count ;
+                        break;
+                    }
+                    count++;
+                }
+                if(indexOfSource != -1)
+                {
+                    stops.removeRange(0...indexOfSource) ;
+                }
+                
+                //remove stops after destination(inclusive)
+                var indexOfDest = -1 ;
+                count = 0 ;
+                for stop in stops
+                {
+                    if(stop.stpid == destStpId)
+                    {
+                        indexOfDest = count ;
+                        break;
+                    }
+                    count++;
+                }
+                if(indexOfDest != -1)
+                {
+                    stops.removeRange(indexOfDest...stops.count-1) ;
+                }
+                
+                //call controller to draw the route
+                controller.drawRoute(stops);
+            }
+        });
+        
+        taskGetStops.resume();
+
     }
     
     func returnBusList(controller: BusListController)

@@ -430,6 +430,7 @@
                     <connections>
                         <outlet property="destName" destination="BO5-oT-RtQ" id="7Hv-7F-x6A"/>
                         <outlet property="destTime" destination="bwH-og-31z" id="XTf-Zv-rlV"/>
+                        <outlet property="mapView" destination="0zn-Zn-PNs" id="RVT-kk-6te"/>
                         <outlet property="sourceName" destination="GcD-5g-J69" id="a7N-vl-06b"/>
                         <outlet property="sourceTime" destination="Gfu-ad-lYG" id="rR0-bf-ZHx"/>
                     </connections>
