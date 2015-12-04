@@ -63,11 +63,15 @@ class SearchBusesController: UIViewController, UITextFieldDelegate, CLLocationMa
         
         sourceInput.delegate = self ;
         destInput.delegate = self ;
+        
         locationManager.delegate = self ;
+        
         sourceSuggestions.delegate = self ;
         destSuggestions.delegate = self ;
+        
         sourceSuggestions.dataSource = self ;
         destSuggestions.dataSource = self ;
+        
         locationManager.startUpdatingLocation();
         
         sourceSuggestions.hidden = true;
@@ -322,7 +326,6 @@ class SearchBusesController: UIViewController, UITextFieldDelegate, CLLocationMa
             {
                 destinationVC.title = "Bus: Custom Route";
                 
-                //mock data
                 destinationVC.sourceLocation = CLLocationCoordinate2D.init(latitude: self.sourceLocationSelected.coordinate.latitude,
                     longitude: self.sourceLocationSelected.coordinate.longitude) ;
                 destinationVC.destinationLocation = CLLocationCoordinate2D.init(latitude: self.destLocationSelected.coordinate.latitude,

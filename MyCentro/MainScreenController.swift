@@ -61,5 +61,19 @@ class MainScreenController: UIViewController {
                 destinationVC.busListOf = "BusListToWork";
             }
         }
+        else if segue.identifier == "Settings"
+        {
+           if let destinationVC = segue.destinationViewController as? SettingsController
+           {
+                destinationVC.title = "Settings" ;
+           }
+        }
+        else if segue.identifier == "SearchBuses"
+        {
+            if let destinationVC = segue.destinationViewController as? SearchBusesController
+            {
+                destinationVC.title = "Search Buses" ;
+            }
+        }
     }
 }
