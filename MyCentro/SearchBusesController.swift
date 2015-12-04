@@ -209,7 +209,11 @@ class SearchBusesController: UIViewController, UITextFieldDelegate, CLLocationMa
     }
     //----------------End of UITableView delegate and datasource protocol methods ------//
     
-    //------------UITextField delegate methods ----------------------------------------//
+    
+    
+    
+    
+    //------------UITextField delegate methods ------------------------------------------------------------//
     func textFieldDidBeginEditing(textField: UITextField)
     {
         
