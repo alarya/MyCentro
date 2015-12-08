@@ -20,6 +20,7 @@ class PredictionsDataParser : NSObject, NSXMLParserDelegate
     var elementValue = "";                              // to temporarily store XML element values
     var predictions = [String: [Prediction]]();           // key - route, value - prediction
     var predictioninfo = Prediction() ;
+    var stopPredictions = [Prediction]() ;
     
     func getPredictions(data : NSData) -> [String: [Prediction]]
     {        
@@ -29,6 +30,16 @@ class PredictionsDataParser : NSObject, NSXMLParserDelegate
         
         
         return predictions ;
+    }
+    
+    func getStopPredictions(data : NSData) -> [Prediction]
+    {
+        let xmlData = NSXMLParser.init(data: data ) ;
+        xmlData.delegate = self ;
+        xmlData.parse();
+        
+        
+        return self.stopPredictions ;
     }
     
     //-------------XML Parser delegate methods -------------------------//
@@ -62,6 +73,7 @@ class PredictionsDataParser : NSObject, NSXMLParserDelegate
             {
                 self.predictions[self.predictioninfo.rt]?.append(self.predictioninfo) ;
             }
+            self.stopPredictions.append(predictioninfo);
             self.elementValue = "";
             break;
         case "stpid":

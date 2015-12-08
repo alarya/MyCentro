@@ -11,6 +11,7 @@
 		680342B51C173CEC0033BE45 /* RoutesListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680342B41C173CEC0033BE45 /* RoutesListController.swift */; settings = {ASSET_TAGS = (); }; };
 		680342B71C173D130033BE45 /* DirectionsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680342B61C173D130033BE45 /* DirectionsListController.swift */; settings = {ASSET_TAGS = (); }; };
 		680342B91C173E1A0033BE45 /* StopsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680342B81C173E1A0033BE45 /* StopsListController.swift */; settings = {ASSET_TAGS = (); }; };
+		680342BB1C175E550033BE45 /* StopPredictionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680342BA1C175E550033BE45 /* StopPredictionController.swift */; settings = {ASSET_TAGS = (); }; };
 		68143EB31C16BDAD001CD8CD /* CollegePlace.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 68143EB21C16BDAD001CD8CD /* CollegePlace.gpx */; settings = {ASSET_TAGS = (); }; };
 		68143EB51C16C7D4001CD8CD /* EGeneseeSt.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 68143EB41C16C7D4001CD8CD /* EGeneseeSt.gpx */; settings = {ASSET_TAGS = (); }; };
 		686B3AFD1C03BE3C004E6A72 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 686B3AFC1C03BE3C004E6A72 /* Default-568h@2x.png */; settings = {ASSET_TAGS = (); }; };
@@ -67,6 +68,7 @@
 		680342B41C173CEC0033BE45 /* RoutesListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutesListController.swift; sourceTree = "<group>"; };
 		680342B61C173D130033BE45 /* DirectionsListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsListController.swift; sourceTree = "<group>"; };
 		680342B81C173E1A0033BE45 /* StopsListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopsListController.swift; sourceTree = "<group>"; };
+		680342BA1C175E550033BE45 /* StopPredictionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopPredictionController.swift; sourceTree = "<group>"; };
 		68143EB21C16BDAD001CD8CD /* CollegePlace.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CollegePlace.gpx; sourceTree = "<group>"; };
 		68143EB41C16C7D4001CD8CD /* EGeneseeSt.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = EGeneseeSt.gpx; sourceTree = "<group>"; };
 		686B3AFC1C03BE3C004E6A72 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				680342B41C173CEC0033BE45 /* RoutesListController.swift */,
 				680342B61C173D130033BE45 /* DirectionsListController.swift */,
 				680342B81C173E1A0033BE45 /* StopsListController.swift */,
+				680342BA1C175E550033BE45 /* StopPredictionController.swift */,
 				68BF8C001BFD4F87003F7437 /* CentroBusApiCaller.swift */,
 				68BF8BFE1BFD4EA2003F7437 /* BusModelProtocol.swift */,
 				68EC13691C118D2700EAE59D /* Models */,
@@ -374,6 +377,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				680342BB1C175E550033BE45 /* StopPredictionController.swift in Sources */,
 				68BF8BFF1BFD4EA2003F7437 /* BusModelProtocol.swift in Sources */,
 				68BF8BFD1BFD4CC3003F7437 /* Settings.swift in Sources */,
 				68BF8C011BFD4F87003F7437 /* CentroBusApiCaller.swift in Sources */,

@@ -553,4 +553,117 @@ class CentroBusApiCaller : NSObject, BusModelProtocol, NSXMLParserDelegate{
         taskGetRoutes.resume();
     }
     
+    func returnDirectionList(route: String, controller: DirectionsListController)
+    {
+        let requestGenerator = URLgenerator();
+        requestGenerator.action = "getdirections" ;
+        requestGenerator.arguments.removeAll();
+        requestGenerator.arguments["rt"] = route ;
+        let URL = NSURL.init(string: requestGenerator.request)!;
+        let URLRequest = NSURLRequest.init(URL: URL);
+        
+        //print("Calling: ");
+        //print(reqquestGenerator.request);
+        
+        let taskGetDirection : NSURLSessionDataTask = session.dataTaskWithRequest(URLRequest, completionHandler: {
+            (data: NSData?,response: NSURLResponse?,error: NSError?) -> Void in
+            
+            if error != nil
+            {
+                print("Error in getting direction");
+            }
+            else
+            {
+                let directionsDataParser = DirectionsDataParser();
+                let direction = directionsDataParser.getDirection(data!);
+                
+                controller.updateTableView(direction);
+            }
+        });
+        
+        taskGetDirection.resume();
+
+    }
+    
+    func returnStopList(route: String, direction: String, controller: StopsListController)
+    {
+        //get all stops of each {route,direction}
+        let requestGenerator = URLgenerator();
+        requestGenerator.action = "getstops";
+        requestGenerator.arguments.removeAll();
+        requestGenerator.arguments["rt"] = route;
+        requestGenerator.arguments["dir"] = direction;
+        let URL = NSURL.init(string: requestGenerator.request)!;
+        let URLRequest = NSURLRequest.init(URL: URL);
+        
+        //print("Calling: ");
+        //print(requestGenerator.request);
+        
+        let taskGetStops : NSURLSessionDataTask = session.dataTaskWithRequest(URLRequest, completionHandler: {
+            (data: NSData?,response: NSURLResponse?,error: NSError?) -> Void in
+            
+            if error != nil
+            {
+                print("Error in getting stops");
+            }
+            else
+            {
+                //get all stops of a route
+                let stopsDataParser = StopsDataParser();
+                let stops = stopsDataParser.getStops(data!);
+                
+                controller.updateTableView(stops) ;
+            }
+        });
+        
+        taskGetStops.resume();
+    }
+    
+    func returnStopPrediction(stop: String, route: String, dir: String, controller: StopPredictionController)
+    {
+        let requestGenerator = URLgenerator();
+        requestGenerator.action = "getpredictions" ;
+        //arguments for API call
+        requestGenerator.arguments["stpid"] = stop;
+        requestGenerator.arguments["rt"] = route;
+        
+        let URL = NSURL.init(string: requestGenerator.request)!;
+        let URLRequest = NSURLRequest.init(URL: URL);
+        
+        
+        print("Calling: ");
+        print(requestGenerator.request);
+        print("\n");
+        
+        let taskGetPredictions : NSURLSessionDataTask = session.dataTaskWithRequest(URLRequest, completionHandler: {
+            (data: NSData?,response: NSURLResponse?,error: NSError?) -> Void in
+            
+            if error != nil
+            {
+                //handle error
+                print("Error in getting predictions");
+                print(error?.domain);
+                print(error?.description);
+                print("\n");
+                
+            }
+            else
+            {
+                let predictionsDataParser = PredictionsDataParser();
+                let predictions = predictionsDataParser.getStopPredictions(data!)
+                
+                for prd in predictions
+                {
+                    if( prd.stpid == stop &&  prd.rtdir == dir && prd.rt == route)
+                    {
+                        controller.updateView(prd);
+                    }
+                }
+                
+            }
+        });
+        
+        taskGetPredictions.resume();
+    }
+    
 }

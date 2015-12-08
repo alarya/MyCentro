@@ -84,17 +84,21 @@ class RoutesListController : UITableViewController
         return self.routeList.count ;
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
-    {
-        performSegueWithIdentifier("BusDetails", sender: tableView);
-    }
+    //override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    //{
+    //    performSegueWithIdentifier("DirectionList", sender: indexPath.row) ;
+    //}
     //--------End of UI Table View delegate methods -----------------//
     
     
     //-----Segue handler ----------------------------------------//
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
-
+        if let destinationVC = segue.destinationViewController as? DirectionsListController
+        {
+                destinationVC.title = "Direction" ;
+                destinationVC.route = self.routeList[(self.routeTableView.indexPathForSelectedRow?.row)!] ;
+        }
     }
     
     //--------------------Utility methods ------------------------------------------------//
