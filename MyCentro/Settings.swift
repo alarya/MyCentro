@@ -107,7 +107,7 @@ class Settings: NSObject
    
     }
     
-    func saveSettings(homeLocation : CLLocationCoordinate2D, workLocation: CLLocationCoordinate2D, homeAddress: String, workAddress: String)
+    func saveSettings(homeLocation : CLLocationCoordinate2D, workLocation: CLLocationCoordinate2D, homeAddress: String, workAddress: String) -> Bool
     {
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as NSArray
         let documentsDirectory = paths[0] as! String
@@ -143,6 +143,6 @@ class Settings: NSObject
             dict.setObject(self.workAddress, forKey: "WorkAddress")
         }
             
-        dict.writeToFile(path, atomically: false)
+        return dict.writeToFile(path, atomically: false)
     }
 }

@@ -63,7 +63,7 @@ class CentroBusApiCaller : NSObject, BusModelProtocol, NSXMLParserDelegate{
 
     
     //properties used in methods
-    let acceptableRange = 600.00 ;                        //change this value to limit the bus stops found within the specified range (meters)
+    let acceptableRange = 1000.00 ;                        //change this value to limit the bus stops found within the specified range (meters)
     var source = CLLocation();
     var destination = CLLocation();
     var routesDictionary = [String : Route]();          // maintains route info:   key - route , value - routeinfo
@@ -86,14 +86,7 @@ class CentroBusApiCaller : NSObject, BusModelProtocol, NSXMLParserDelegate{
         self.source = source;
         self.destination = destination;
         
-        //check if routes data already exists from previous calls
-        //if(routesDictionary.count != 0)
-        //{
-        //    self.getPredictionsRoutes(route, controller: controller);     //directly get predictions NEED TO GET BACK TO THIS CASE
-        //}
-        //else get the data
-        //else
-        //{
+
             //--------get all routes--------------
             let requestGenerator = URLgenerator();
             requestGenerator.action = "getroutes" ;
@@ -350,7 +343,7 @@ class CentroBusApiCaller : NSObject, BusModelProtocol, NSXMLParserDelegate{
                     }
                     
                     let predictionObject = PredictionObject();
-                    //iterate stops for only the route we are interested in
+                    
                     if(predictions[route] != nil)
                     {
                         if(predictions[route]?.count >= 2)
@@ -382,11 +375,21 @@ class CentroBusApiCaller : NSObject, BusModelProtocol, NSXMLParserDelegate{
                                 predictionObject.rtdir = prediction.rtdir;
                                 predictionObject.vid = prediction.vid ;
                             }
-                            self.predictionsList.append(predictionObject);
-                            print("---------prediction with timings ------------")
-                            print(self.predictionsList);
+                            
+                            //added measure to avoid adding prediction object with black source or dest stops
+                            if(predictionObject.sourcestpnm != "" && predictionObject.deststpnm != "")
+                            {
+                                if(self.sourcePrdTimeLessThanDest(predictionObject))
+                                {
+                                    self.predictionsList.append(predictionObject);
+                                }
+                            }
+                            
+                            //print("---------prediction with timings ------------")
+                            //print(self.predictionsList);
+                            
+                            self.returnBusList(controller);
                         }
-                        self.returnBusList(controller);
                     }
                     else
                     {
@@ -476,6 +479,78 @@ class CentroBusApiCaller : NSObject, BusModelProtocol, NSXMLParserDelegate{
         print("Sending prediction times to the controller.....");
         
         controller.updateTableView(self.predictionsList);
+    }
+    
+    func sourcePrdTimeLessThanDest(predictionObject: PredictionObject) -> Bool
+    {
+        let sourceTime = predictionObject.sourceprdtm.componentsSeparatedByString(" ").last ;
+        let destTime = predictionObject.destprdtm.componentsSeparatedByString(" ").last ;
+
+        let sourceHour = sourceTime!.componentsSeparatedByString(":").first ;
+        let sourceMinutes = sourceTime!.componentsSeparatedByString(":").last ;
+        let destHour = destTime!.componentsSeparatedByString(":").first ;
+        let destMinutes = destTime!.componentsSeparatedByString(":").last ;
+        
+        if( Int(sourceHour!)! < Int(destHour!)! )
+        {
+            return true ;
+        }
+        else if (Int(sourceHour!)! == Int(destHour!)!)
+        {
+            if( Int(sourceMinutes!)! <= Int(destMinutes!)! )
+            {
+                return true ;
+            }
+        }
+        
+        return false;
+    }
+    
+    func returnRouteList(controller: RoutesListController)
+    {
+        //--------get all routes--------------
+        let requestGenerator = URLgenerator();
+        requestGenerator.action = "getroutes" ;
+        let URL = NSURL.init(string: requestGenerator.request)!;
+        let URLRequest = NSURLRequest.init(URL: URL);
+        
+        
+        print("Calling: ");
+        print(requestGenerator.request);
+        
+        let taskGetRoutes : NSURLSessionDataTask = session.dataTaskWithRequest(URLRequest, completionHandler: {
+            (data: NSData?,response: NSURLResponse?,error: NSError?) -> Void in
+            
+            //----call to getroutes fails ------
+            if error != nil
+            {
+                //handle error
+                print("Error in getting routes");
+                print(error?.domain);
+                print(error?.description);
+                print("\n");
+                
+                
+            }
+                //----call to getroutes  succeeds ----
+            else
+            {
+                
+                
+                let routesDataParser = RoutesDataParser();
+                let routesListDictionary = routesDataParser.getRoutes(data!);
+                
+                var routeList = [Route]();
+                
+                for (_,route) in routesListDictionary
+                {
+                    routeList.append(route)
+                }
+                controller.updateTableView(routeList);
+            }
+            
+        });
+        taskGetRoutes.resume();
     }
     
 }

@@ -62,7 +62,7 @@ class BusListController: UIViewController,UITableViewDataSource, UITableViewDele
         let nib = UINib(nibName: "BusListTableViewCell" , bundle: nil);
         BusListTable.registerNib(nib, forCellReuseIdentifier: "BusListCell");
         
-        self.useMockDataForTesting();
+        //self.useMockDataForTesting();
         
         BusListTable.delegate = self ;
         
@@ -92,14 +92,12 @@ class BusListController: UIViewController,UITableViewDataSource, UITableViewDele
         // Dispose of any resources that can be recreated.
     }
     
+    
+    //method called by Centro API Caller to update bus list
     func updateTableView(predictionList: [PredictionObject])
     {
-        for prediction in predictionList
-        {
-            self.busList.append(prediction);
-        }
-        
 
+        self.busList = predictionList ;
 
         dispatch_sync(dispatch_get_main_queue(), {
             self.BusListTable.reloadData();
@@ -118,7 +116,7 @@ class BusListController: UIViewController,UITableViewDataSource, UITableViewDele
         let srctm = self.busList[indexPath.row].sourceprdtm.componentsSeparatedByString(" ").last ;
         let desttm = self.busList[indexPath.row].destprdtm.componentsSeparatedByString(" ").last ;
         
-        print(self.busList);
+        //print(self.busList);
         // test
         //cell.loadCell("Westcott", sourceName: "destinty", sourceTime: "15:00", destName: "College Place", destTime: "15:30") ;
         

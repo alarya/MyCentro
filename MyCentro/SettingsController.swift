@@ -304,6 +304,21 @@ class SettingsController : UIViewController, UITextFieldDelegate,
     @IBAction func SaveSettings(sender: AnyObject)
     {
         
-        self.settings.saveSettings(self.homeLocationSelected, workLocation: self.workLocationSelected, homeAddress: self.homeInput.text!, workAddress: self.workInput.text!)
+        let saveResult = self.settings.saveSettings(self.homeLocationSelected, workLocation: self.workLocationSelected, homeAddress: self.homeInput.text!, workAddress: self.workInput.text!)
+        
+        if(saveResult)
+        {
+            let alertController = UIAlertController(title: "Settings", message: "Saved !!", preferredStyle: UIAlertControllerStyle.Alert) ;
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil)) ;
+            
+            self.presentViewController(alertController, animated: true, completion: nil) ;
+        }
+        else
+        {
+            let alertController = UIAlertController(title: "Settings", message: "Couldn't save !!", preferredStyle: UIAlertControllerStyle.Alert) ;
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil)) ;
+            
+            self.presentViewController(alertController, animated: true, completion: nil) ;
+        }
     }
 }

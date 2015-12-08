@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		680342B31C16EAFB0033BE45 /* centro-logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 680342B21C16EAFB0033BE45 /* centro-logo.jpg */; settings = {ASSET_TAGS = (); }; };
+		680342B51C173CEC0033BE45 /* RoutesListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680342B41C173CEC0033BE45 /* RoutesListController.swift */; settings = {ASSET_TAGS = (); }; };
+		680342B71C173D130033BE45 /* DirectionsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680342B61C173D130033BE45 /* DirectionsListController.swift */; settings = {ASSET_TAGS = (); }; };
+		680342B91C173E1A0033BE45 /* StopsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680342B81C173E1A0033BE45 /* StopsListController.swift */; settings = {ASSET_TAGS = (); }; };
 		68143EB31C16BDAD001CD8CD /* CollegePlace.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 68143EB21C16BDAD001CD8CD /* CollegePlace.gpx */; settings = {ASSET_TAGS = (); }; };
 		68143EB51C16C7D4001CD8CD /* EGeneseeSt.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 68143EB41C16C7D4001CD8CD /* EGeneseeSt.gpx */; settings = {ASSET_TAGS = (); }; };
 		686B3AFD1C03BE3C004E6A72 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 686B3AFC1C03BE3C004E6A72 /* Default-568h@2x.png */; settings = {ASSET_TAGS = (); }; };
@@ -61,6 +64,9 @@
 
 /* Begin PBXFileReference section */
 		680342B21C16EAFB0033BE45 /* centro-logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "centro-logo.jpg"; path = "../../../centro-logo.jpg"; sourceTree = "<group>"; };
+		680342B41C173CEC0033BE45 /* RoutesListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutesListController.swift; sourceTree = "<group>"; };
+		680342B61C173D130033BE45 /* DirectionsListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsListController.swift; sourceTree = "<group>"; };
+		680342B81C173E1A0033BE45 /* StopsListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopsListController.swift; sourceTree = "<group>"; };
 		68143EB21C16BDAD001CD8CD /* CollegePlace.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CollegePlace.gpx; sourceTree = "<group>"; };
 		68143EB41C16C7D4001CD8CD /* EGeneseeSt.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = EGeneseeSt.gpx; sourceTree = "<group>"; };
 		686B3AFC1C03BE3C004E6A72 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -189,6 +195,9 @@
 				68F39DE91BFAC9CA005E9695 /* BusListController.swift */,
 				68F931491BFAEF1A00758BB6 /* BusDetailsController.swift */,
 				68EC13671C118CF900EAE59D /* SettingsController.swift */,
+				680342B41C173CEC0033BE45 /* RoutesListController.swift */,
+				680342B61C173D130033BE45 /* DirectionsListController.swift */,
+				680342B81C173E1A0033BE45 /* StopsListController.swift */,
 				68BF8C001BFD4F87003F7437 /* CentroBusApiCaller.swift */,
 				68BF8BFE1BFD4EA2003F7437 /* BusModelProtocol.swift */,
 				68EC13691C118D2700EAE59D /* Models */,
@@ -372,6 +381,9 @@
 				68790ABD1C053B8000644F8C /* PredictionsDataParser.swift in Sources */,
 				68F39DEA1BFAC9CA005E9695 /* BusListController.swift in Sources */,
 				68C05FDB1C0968E8007A3915 /* SearchBusesController.swift in Sources */,
+				680342B71C173D130033BE45 /* DirectionsListController.swift in Sources */,
+				680342B51C173CEC0033BE45 /* RoutesListController.swift in Sources */,
+				680342B91C173E1A0033BE45 /* StopsListController.swift in Sources */,
 				68EC13681C118CF900EAE59D /* SettingsController.swift in Sources */,
 				68F39DE81BFAC9CA005E9695 /* AppDelegate.swift in Sources */,
 				686B3B021C040E1E004E6A72 /* StopsDataParser.swift in Sources */,

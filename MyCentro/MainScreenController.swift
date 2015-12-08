@@ -88,6 +88,13 @@ class MainScreenController: UIViewController, CLLocationManagerDelegate
                 destinationVC.title = "Search Buses" ;
             }
         }
+        else if segue.identifier == "Routes"
+        {
+            if let destinationVC = segue.destinationViewController as? RoutesListController
+            {
+                destinationVC.title = "Routes" ;
+            }
+        }
     }
     
     //------------CLLocationManager delegate methods -------------------------------//
