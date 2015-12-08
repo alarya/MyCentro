@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		68143EB31C16BDAD001CD8CD /* CurrentLoc.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 68143EB21C16BDAD001CD8CD /* CurrentLoc.gpx */; settings = {ASSET_TAGS = (); }; };
+		680342B31C16EAFB0033BE45 /* centro-logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 680342B21C16EAFB0033BE45 /* centro-logo.jpg */; settings = {ASSET_TAGS = (); }; };
+		68143EB31C16BDAD001CD8CD /* CollegePlace.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 68143EB21C16BDAD001CD8CD /* CollegePlace.gpx */; settings = {ASSET_TAGS = (); }; };
+		68143EB51C16C7D4001CD8CD /* EGeneseeSt.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 68143EB41C16C7D4001CD8CD /* EGeneseeSt.gpx */; settings = {ASSET_TAGS = (); }; };
 		686B3AFD1C03BE3C004E6A72 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 686B3AFC1C03BE3C004E6A72 /* Default-568h@2x.png */; settings = {ASSET_TAGS = (); }; };
 		686B3B001C0403B0004E6A72 /* RoutesDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686B3AFF1C0403B0004E6A72 /* RoutesDataParser.swift */; settings = {ASSET_TAGS = (); }; };
 		686B3B021C040E1E004E6A72 /* StopsDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686B3B011C040E1E004E6A72 /* StopsDataParser.swift */; settings = {ASSET_TAGS = (); }; };
@@ -58,7 +60,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		68143EB21C16BDAD001CD8CD /* CurrentLoc.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CurrentLoc.gpx; sourceTree = "<group>"; };
+		680342B21C16EAFB0033BE45 /* centro-logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "centro-logo.jpg"; path = "../../../centro-logo.jpg"; sourceTree = "<group>"; };
+		68143EB21C16BDAD001CD8CD /* CollegePlace.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CollegePlace.gpx; sourceTree = "<group>"; };
+		68143EB41C16C7D4001CD8CD /* EGeneseeSt.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = EGeneseeSt.gpx; sourceTree = "<group>"; };
 		686B3AFC1C03BE3C004E6A72 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		686B3AFF1C0403B0004E6A72 /* RoutesDataParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutesDataParser.swift; sourceTree = "<group>"; };
 		686B3B011C040E1E004E6A72 /* StopsDataParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopsDataParser.swift; sourceTree = "<group>"; };
@@ -122,6 +126,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		680342B11C16EAE40033BE45 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				680342B21C16EAFB0033BE45 /* centro-logo.jpg */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		686B3AFE1C040360004E6A72 /* CentroBusApiParsers */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +182,7 @@
 		68F39DE61BFAC9CA005E9695 /* MyCentro */ = {
 			isa = PBXGroup;
 			children = (
+				680342B11C16EAE40033BE45 /* Images */,
 				68F39DE71BFAC9CA005E9695 /* AppDelegate.swift */,
 				68F931411BFAE24F00758BB6 /* MainScreenController.swift */,
 				68C05FDA1C0968E8007A3915 /* SearchBusesController.swift */,
@@ -187,7 +200,8 @@
 				68F39DF61BFAC9CA005E9695 /* Info.plist */,
 				68EC136D1C11910D00EAE59D /* Settings.plist */,
 				68F39DEE1BFAC9CA005E9695 /* MyCentro.xcdatamodeld */,
-				68143EB21C16BDAD001CD8CD /* CurrentLoc.gpx */,
+				68143EB21C16BDAD001CD8CD /* CollegePlace.gpx */,
+				68143EB41C16C7D4001CD8CD /* EGeneseeSt.gpx */,
 			);
 			path = MyCentro;
 			sourceTree = "<group>";
@@ -320,10 +334,12 @@
 			files = (
 				68F39DF51BFAC9CA005E9695 /* LaunchScreen.storyboard in Resources */,
 				68790AC11C09389500644F8C /* BusListTableViewCell.xib in Resources */,
+				680342B31C16EAFB0033BE45 /* centro-logo.jpg in Resources */,
 				686B3AFD1C03BE3C004E6A72 /* Default-568h@2x.png in Resources */,
+				68143EB51C16C7D4001CD8CD /* EGeneseeSt.gpx in Resources */,
 				68F39DF21BFAC9CA005E9695 /* Assets.xcassets in Resources */,
 				68F39DED1BFAC9CA005E9695 /* Main.storyboard in Resources */,
-				68143EB31C16BDAD001CD8CD /* CurrentLoc.gpx in Resources */,
+				68143EB31C16BDAD001CD8CD /* CollegePlace.gpx in Resources */,
 				68EC136E1C11910D00EAE59D /* Settings.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

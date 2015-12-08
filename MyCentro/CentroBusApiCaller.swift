@@ -101,8 +101,8 @@ class CentroBusApiCaller : NSObject, BusModelProtocol, NSXMLParserDelegate{
             let URLRequest = NSURLRequest.init(URL: URL);
             
             
-            //print("Calling: ");
-            //print(requestGenerator.request);
+            print("Calling: ");
+            print(requestGenerator.request);
 
             let taskGetRoutes : NSURLSessionDataTask = session.dataTaskWithRequest(URLRequest, completionHandler: {
                 (data: NSData?,response: NSURLResponse?,error: NSError?) -> Void in
@@ -262,14 +262,14 @@ class CentroBusApiCaller : NSObject, BusModelProtocol, NSXMLParserDelegate{
             {
                 closestSourceStopDist = distance;
                 source = stop;
-                //print("A possible source was found ----------------------------");
+                //print("A possible source was found ----------------");
             }
             distance = self.destination.distanceFromLocation(stopLocation);
             if (distance < closestDestinationStopDist && Double(distance) < self.acceptableRange)
             {
                 closestDestinationStopDist = distance;
                 dest = stop ;
-                //print("A possible destination was found ----------------------------");
+                //print("A possible destination was found -----------");
             }
         }
             

@@ -198,7 +198,6 @@ class SettingsController : UIViewController, UITextFieldDelegate,
             print(indexPath.row);
             self.homeLocationSelected.latitude = self.homeSuggestionsArray[indexPath.row].location!.coordinate.latitude ;
             self.homeLocationSelected.longitude = self.homeSuggestionsArray[indexPath.row].location!.coordinate.longitude ;
-            print(self.homeLocationSelected);
             self.homeInput.text = self.tableView(tableView, cellForRowAtIndexPath: indexPath).textLabel!.text;
             self.homeSuggestions.hidden = true ;
         }

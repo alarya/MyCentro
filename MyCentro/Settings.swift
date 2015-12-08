@@ -77,21 +77,33 @@ class Settings: NSObject
         
         let resultDictionary = NSMutableDictionary(contentsOfFile: path)
         
-        let homeLatitude = resultDictionary!.objectForKey("HomeLatitude");
-        let homeLongitude = resultDictionary!.objectForKey("HomeLongitude");
+        let homeLatitude = resultDictionary!.objectForKey("HomeLatitude")
+        let homeLongitude = resultDictionary!.objectForKey("HomeLongitude")
         
-        self.homeLocation = CLLocationCoordinate2D.init(latitude: (homeLatitude as? CLLocationDegrees)!, longitude: (homeLongitude as? CLLocationDegrees)!);
+        self.homeLocation = CLLocationCoordinate2D.init(latitude: (homeLatitude as? CLLocationDegrees)!, longitude: (homeLongitude as? CLLocationDegrees)!)
         
-        let workLatitude = resultDictionary!.objectForKey("WorkLatitude");
-        let workLongitude = resultDictionary!.objectForKey("WorkLongitude");
+        let workLatitude = resultDictionary!.objectForKey("WorkLatitude")
+        let workLongitude = resultDictionary!.objectForKey("WorkLongitude")
         
-        self.workLocation = CLLocationCoordinate2D.init(latitude: (workLatitude as? CLLocationDegrees)!, longitude: (workLongitude as? CLLocationDegrees)!);
+        self.workLocation = CLLocationCoordinate2D.init(latitude: (workLatitude as? CLLocationDegrees)!, longitude: (workLongitude as? CLLocationDegrees)!)
         
-        let homeAddress = resultDictionary!.objectForKey("HomeAddress");
-        self.homeAddress = (homeAddress as? String)! ;
+        let homeAddress = resultDictionary!.objectForKey("HomeAddress")
+        self.homeAddress = (homeAddress as? String)!
         
-        let workAddress = resultDictionary!.objectForKey("WorkAddress");
-        self.workAddress = (workAddress as? String)! ;
+        let workAddress = resultDictionary!.objectForKey("WorkAddress")
+        self.workAddress = (workAddress as? String)!
+        
+        /*
+        print("Settings")
+        print("Home Address")
+        print(self.homeAddress)
+        print(self.homeLocation.latitude)
+        print(self.homeLocation.longitude)
+        print("Work Address")
+        print(self.workAddress)
+        print(self.workLocation.latitude)
+        print(self.workLocation.longitude)
+        */
    
     }
     
@@ -103,14 +115,34 @@ class Settings: NSObject
         
         let dict : NSMutableDictionary = ["XInitializerItem": "DoNotEverChangeMe"]
         
-        dict.setObject(homeLocation.latitude, forKey: "HomeLatitude")
-        dict.setObject(homeLocation.longitude, forKey: "HomeLongitude")
-        dict.setObject(workLocation.latitude, forKey: "WorkLatitude")
-        dict.setObject(workLocation.longitude, forKey: "WorkLongitude")
-        dict.setObject(homeAddress, forKey: "HomeAddress")
-        dict.setObject(workAddress, forKey: "WorkAddress")
-
         
+        //check if home address was updated 
+        if (self.homeAddress != homeAddress){
+            dict.setObject(homeLocation.latitude, forKey: "HomeLatitude")
+            dict.setObject(homeLocation.longitude, forKey: "HomeLongitude")
+            dict.setObject(homeAddress, forKey: "HomeAddress")
+        }
+        else
+        {
+            dict.setObject(self.homeLocation.latitude, forKey: "HomeLatitude")
+            dict.setObject(self.homeLocation.longitude, forKey: "HomeLongitude")
+            dict.setObject(self.homeAddress, forKey: "HomeAddress")
+        }
+        
+        //check if work address was updated
+        if (self.workAddress != workAddress)
+        {
+            dict.setObject(workLocation.latitude, forKey: "WorkLatitude")
+            dict.setObject(workLocation.longitude, forKey: "WorkLongitude")
+            dict.setObject(workAddress, forKey: "WorkAddress")
+        }
+        else
+        {
+            dict.setObject(self.workLocation.latitude, forKey: "WorkLatitude")
+            dict.setObject(self.workLocation.longitude, forKey: "WorkLongitude")
+            dict.setObject(self.workAddress, forKey: "WorkAddress")
+        }
+            
         dict.writeToFile(path, atomically: false)
     }
 }

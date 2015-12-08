@@ -314,6 +314,8 @@ class SearchBusesController: UIViewController, UITextFieldDelegate,
                 destinationVC.destinationLocation = CLLocationCoordinate2D.init(latitude: self.destLocationSelected.coordinate.latitude,
                     longitude: self.destLocationSelected.coordinate.longitude) ;
                 destinationVC.busListOf = "CustomRouteBuses";
+                destinationVC.sourceAddress = self.sourceInput.text! ;
+                destinationVC.destAddress = self.destInput.text! ;
             }
         }
     }
