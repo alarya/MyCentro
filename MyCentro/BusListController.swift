@@ -18,6 +18,8 @@ class BusListController: UIViewController,UITableViewDataSource, UITableViewDele
     var busListOf: String?;
     var centroAPI : CentroBusApiCaller;
     var busList : [PredictionObject];
+    var settings = Settings() ;
+    var currentLocation: CLLocationCoordinate2D?;
     
     @IBOutlet weak var BusListTable: UITableView! ;
     
@@ -52,6 +54,7 @@ class BusListController: UIViewController,UITableViewDataSource, UITableViewDele
         BusListTable.registerNib(nib, forCellReuseIdentifier: "BusListCell");
         
         //mock data for test
+        /*
         let mock1 = PredictionObject() ;
         mock1.sourcelocation = CLLocation.init(latitude: 43.012135659673, longitude: -76.11685395240801);
         mock1.destlocation = CLLocation.init(latitude: 43.016497338119, longitude: -76.11913383006998) ;
@@ -79,6 +82,7 @@ class BusListController: UIViewController,UITableViewDataSource, UITableViewDele
         mock2.rtdir = "FROM CAMPUS";
         mock2.rt = "443" ;
         self.busList.append(mock2);
+        */
         //-----------------------
         
         BusListTable.delegate = self ;
@@ -93,15 +97,41 @@ class BusListController: UIViewController,UITableViewDataSource, UITableViewDele
                 //let source = CLLocation.init(latitude: 43.043317, longitude: -76.151389);
                 //let destination = CLLocation.init(latitude: 43.076548, longitude: -76.169244);
 
-                //centroAPI.getListOfBuses(source, destination: destination, controller : self);
-         
+                if (self.currentLocation?.latitude == 0.0 || self.currentLocation?.longitude == 0.0)
+                {
+                    let alertController = UIAlertController(title: "Location", message: "Could not get current location !", preferredStyle: UIAlertControllerStyle.Alert) ;
+                    alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil)) ;
+                    
+                    self.presentViewController(alertController, animated: true, completion: nil) ;
+                }
+                else
+                {
+                    print(self.currentLocation);
+                    
+                    centroAPI.getListOfBuses(CLLocation.init(latitude: (self.currentLocation?.latitude)!, longitude: (self.currentLocation?.longitude)!) ,
+                                         destination: CLLocation.init(latitude: self.settings.homeLocation.latitude,longitude: self.settings.homeLocation.longitude),
+                                         controller : self);
+                }
             }
             else if(busListOf == "BusListToWork")
             {
                 //let source = CLLocation.init(latitude: 43.038572, longitude: -76.134517 );    //SU
                 //let destination = CLLocation.init(latitude: 43.049577, longitude: -76.150281);  //Irving Ave Harrison St
                 
-                //centroAPI.getListOfBuses(source, destination: destination, controller : self);
+                if (self.currentLocation?.latitude == 0.0 || self.currentLocation?.longitude == 0.0)
+                {
+                    let alertController = UIAlertController(title: "Location", message: "Could not get current location !", preferredStyle: UIAlertControllerStyle.Alert) ;
+                    alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil)) ;
+                    
+                    self.presentViewController(alertController, animated: true, completion: nil) ;
+                }
+                else
+                {
+                    print(self.currentLocation) ;
+                    centroAPI.getListOfBuses(CLLocation.init(latitude: (self.currentLocation?.latitude)!, longitude: (self.currentLocation?.longitude)!) ,
+                                         destination: CLLocation.init(latitude: self.settings.workLocation.latitude, longitude: self.settings.workLocation.longitude),
+                                         controller : self);
+                }
             }
             else if(busListOf == "CustomRouteBuses")
             {

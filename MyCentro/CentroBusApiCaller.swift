@@ -101,8 +101,8 @@ class CentroBusApiCaller : NSObject, BusModelProtocol, NSXMLParserDelegate{
             let URLRequest = NSURLRequest.init(URL: URL);
             
             
-            print("Calling: ");
-            print(requestGenerator.request);
+            //print("Calling: ");
+            //print(requestGenerator.request);
 
             let taskGetRoutes : NSURLSessionDataTask = session.dataTaskWithRequest(URLRequest, completionHandler: {
                 (data: NSData?,response: NSURLResponse?,error: NSError?) -> Void in
@@ -121,12 +121,13 @@ class CentroBusApiCaller : NSObject, BusModelProtocol, NSXMLParserDelegate{
                 //----call to getroutes  succeeds ----
                 else
                 {
-                    print("Routes");
+                    
                     
                     let routesDataParser = RoutesDataParser();
                     self.routesDictionary = routesDataParser.getRoutes(data!);
                     
-                    print(self.routesDictionary);
+                    //print("Routes");
+                    //print(self.routesDictionary);
                     
                     //Get all stops in each route
                     self.getDirections(controller);
@@ -151,8 +152,8 @@ class CentroBusApiCaller : NSObject, BusModelProtocol, NSXMLParserDelegate{
             let URL = NSURL.init(string: reqquestGenerator.request)!;
             let URLRequest = NSURLRequest.init(URL: URL);
             
-            print("Calling: ");
-            print(reqquestGenerator.request);
+            //print("Calling: ");
+            //print(reqquestGenerator.request);
             
             let taskGetDirection : NSURLSessionDataTask = session.dataTaskWithRequest(URLRequest, completionHandler: {
                 (data: NSData?,response: NSURLResponse?,error: NSError?) -> Void in
@@ -166,10 +167,10 @@ class CentroBusApiCaller : NSObject, BusModelProtocol, NSXMLParserDelegate{
                     let directionsDataParser = DirectionsDataParser();
                     let direction = directionsDataParser.getDirection(data!);
                     
-                    print("Route");
-                    print(route);
-                    print("Direction");
-                    print(direction);
+                    //print("Route");
+                    //print(route);
+                    //print("Direction");
+                    //print(direction);
                     
                     //add the directions to routes dictionary
                     if(direction.count == 2)
@@ -203,8 +204,8 @@ class CentroBusApiCaller : NSObject, BusModelProtocol, NSXMLParserDelegate{
         let URL = NSURL.init(string: requestGenerator.request)!;
         let URLRequest = NSURLRequest.init(URL: URL);
         
-        print("Calling: ");
-        print(requestGenerator.request);
+        //print("Calling: ");
+        //print(requestGenerator.request);
         
         let taskGetStops : NSURLSessionDataTask = session.dataTaskWithRequest(URLRequest, completionHandler: {
             (data: NSData?,response: NSURLResponse?,error: NSError?) -> Void in
@@ -306,6 +307,7 @@ class CentroBusApiCaller : NSObject, BusModelProtocol, NSXMLParserDelegate{
             stops += ","
             stops += (self.predictionsRoutes[route]?.last?.stpid)! ;
             requestGenerator.arguments["stpid"] = stops;
+            requestGenerator.arguments["rt"] = route;
             
             let URL = NSURL.init(string: requestGenerator.request)!;
             let URLRequest = NSURLRequest.init(URL: URL);

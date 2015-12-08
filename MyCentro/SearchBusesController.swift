@@ -12,7 +12,7 @@ import CoreLocation
 import AddressBookUI
 import Contacts
 
-class SearchBusesController: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate,
+class SearchBusesController: UIViewController, UITextFieldDelegate,
                                 UITableViewDelegate, UITableViewDataSource
 {
     
@@ -29,10 +29,6 @@ class SearchBusesController: UIViewController, UITextFieldDelegate, CLLocationMa
     var destSuggestionsArray = [CLPlacemark]();
     
     var locationLookUp = CLGeocoder();
-    
-    var locationManager = CLLocationManager();
-    
-    var currentLocation = CLLocation.init(latitude: 0.0, longitude: 0.0);
     
     var sourceLocationSelected = CLLocation.init(latitude: 0.0, longitude: 0.0);
 
@@ -61,21 +57,17 @@ class SearchBusesController: UIViewController, UITextFieldDelegate, CLLocationMa
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        sourceInput.delegate = self ;
-        destInput.delegate = self ;
+        self.sourceInput.delegate = self ;
+        self.destInput.delegate = self ;
+   
+        self.sourceSuggestions.delegate = self ;
+        self.destSuggestions.delegate = self ;
         
-        locationManager.delegate = self ;
+        self.sourceSuggestions.dataSource = self ;
+        self.destSuggestions.dataSource = self ;
         
-        sourceSuggestions.delegate = self ;
-        destSuggestions.delegate = self ;
-        
-        sourceSuggestions.dataSource = self ;
-        destSuggestions.dataSource = self ;
-        
-        locationManager.startUpdatingLocation();
-        
-        sourceSuggestions.hidden = true;
-        destSuggestions.hidden = true;
+        self.sourceSuggestions.hidden = true;
+        self.destSuggestions.hidden = true;
     }
     
     override func didReceiveMemoryWarning()
@@ -302,15 +294,6 @@ class SearchBusesController: UIViewController, UITextFieldDelegate, CLLocationMa
     }
     //------------End of UITextField delegate methods --------------------------------//
     
-    //------------CLLocationManager delegate methods -------------------------------//
-
-    //update current location if available
-    func locationManager(manager: CLLocationManager,didUpdateLocations locations: [CLLocation])
-    {
-        self.currentLocation = locations.last! ;
-    }
-    
-    //----------End of CLLocationManager delegate methods ----------------------------//
     
     //-----------UI Button Event ------------------------//
     @IBAction func searchBuses(sender: UIButton)

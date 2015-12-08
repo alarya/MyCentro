@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MyCentro/SearchBusesController.swift"
-            timestampString = "470923689.173067"
+            filePath = "MyCentro/SettingsController.swift"
+            timestampString = "471244902.203108"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "329"
-            endingLineNumber = "329"
-            landmarkName = "prepareForSegue(_:sender:)"
+            startingLineNumber = "308"
+            endingLineNumber = "308"
+            landmarkName = "SaveSettings(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

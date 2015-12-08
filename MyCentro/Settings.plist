@@ -11,8 +11,8 @@
 	<key>WorkLongitude</key>
 	<integer>0</integer>
 	<key>HomeAddress</key>
-	<string></string>
+	<string>Enter Address</string>
 	<key>WorkAddress</key>
-	<string></string>
+	<string>Enter Address</string>
 </dict>
 </plist>

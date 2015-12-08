@@ -57,17 +57,20 @@ class SettingsController : UIViewController, UITextFieldDelegate,
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        homeInput.delegate = self ;
-        workInput.delegate = self ;
+        self.homeInput.delegate = self ;
+        self.workInput.delegate = self ;
 
-        homeSuggestions.delegate = self ;
-        workSuggestions.delegate = self ;
+        self.homeSuggestions.delegate = self ;
+        self.workSuggestions.delegate = self ;
         
-        homeSuggestions.dataSource = self ;
-        workSuggestions.dataSource = self ;
+        self.homeSuggestions.dataSource = self ;
+        self.workSuggestions.dataSource = self ;
         
-        homeSuggestions.hidden = true;
-        workSuggestions.hidden = true;
+        self.homeSuggestions.hidden = true;
+        self.workSuggestions.hidden = true;
+        
+        self.homeInput.text = self.settings.homeAddress ;
+        self.workInput.text = self.settings.workAddress ;
       
     }
     

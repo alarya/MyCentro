@@ -8,18 +8,27 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 
-class MainScreenController: UIViewController {
+class MainScreenController: UIViewController, CLLocationManagerDelegate
+{
     
     @IBOutlet weak var busToHomeButton: UIButton!
     
     @IBOutlet weak var busToWorkButton: UIButton!
     
+    var locationManager = CLLocationManager();
+    
+    var currentLocation = CLLocation.init(latitude: 0.0, longitude: 0.0);
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.locationManager.delegate = self ;
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.startUpdatingLocation();
     }
     
     override func didReceiveMemoryWarning()
@@ -50,6 +59,8 @@ class MainScreenController: UIViewController {
                 destinationVC.title = "Bus to Home";
                 
                 destinationVC.busListOf = "BusListToHome";
+                
+                destinationVC.currentLocation = CLLocationCoordinate2D.init(latitude: self.currentLocation.coordinate.latitude, longitude: self.currentLocation.coordinate.longitude)
             }
         }
         else if segue.identifier == "BusListToWork"
@@ -59,6 +70,8 @@ class MainScreenController: UIViewController {
                 destinationVC.title = "Bus to Work";
                 
                 destinationVC.busListOf = "BusListToWork";
+                
+                destinationVC.currentLocation = CLLocationCoordinate2D.init(latitude: self.currentLocation.coordinate.latitude, longitude: self.currentLocation.coordinate.longitude)
             }
         }
         else if segue.identifier == "Settings"
@@ -76,4 +89,14 @@ class MainScreenController: UIViewController {
             }
         }
     }
+    
+    //------------CLLocationManager delegate methods -------------------------------//
+    
+    //update current location if available
+    func locationManager(manager: CLLocationManager,didUpdateLocations locations: [CLLocation])
+    {
+        self.currentLocation = locations.last! ;
+    }
+    
+    //----------End of CLLocationManager delegate methods ----------------------------//
 }
