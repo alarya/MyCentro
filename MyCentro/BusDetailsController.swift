@@ -11,10 +11,11 @@ import UIKit
 import CoreLocation
 import MapKit
 
-class BusDetailsController: UIViewController, MKMapViewDelegate
+class BusDetailsController: UIViewController, MKMapViewDelegate,  CLLocationManagerDelegate
 {
     var busDetails: PredictionObject ;
     var centroAPI : CentroBusApiCaller;
+    var locationManager = CLLocationManager();
     
     @IBOutlet weak var sourceName: UILabel!
     @IBOutlet weak var destName: UILabel!
@@ -43,6 +44,10 @@ class BusDetailsController: UIViewController, MKMapViewDelegate
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        self.locationManager.delegate = self ;
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.startUpdatingLocation();
         
         //Set up view labels
         self.sourceName.text = self.busDetails.sourcestpnm ;
@@ -89,12 +94,13 @@ class BusDetailsController: UIViewController, MKMapViewDelegate
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView?
     {
         let identifier = "pin" ;
-        var view: MKPinAnnotationView ;
+        var view: MKAnnotationView ;
         if let dequeuedView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
-            as? MKPinAnnotationView
+            as MKAnnotationView!
         {
             dequeuedView.annotation = annotation ;
             view = dequeuedView ;
+            
         }
         else
         {
@@ -102,6 +108,9 @@ class BusDetailsController: UIViewController, MKMapViewDelegate
             view.canShowCallout = true ;
             view.calloutOffset = CGPoint(x: -5, y: 5) ;
         }
+        
+        view.image = UIImage(named: "busAnnotation.png") ;
+        
         return view ;
     }
     
@@ -164,6 +173,8 @@ class BusDetailsController: UIViewController, MKMapViewDelegate
             }
         });
     }
+    
+
 }
 
 /***************************

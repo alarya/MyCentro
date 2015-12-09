@@ -342,7 +342,7 @@ class CentroBusApiCaller : NSObject, BusModelProtocol, NSXMLParserDelegate{
                         }
                     }
                     
-                    let predictionObject = PredictionObject();
+                    
                     
                     if(predictions.count != 0)
                     {
@@ -350,6 +350,8 @@ class CentroBusApiCaller : NSObject, BusModelProtocol, NSXMLParserDelegate{
                         {
                             if(predictions[vid]?.count >= 2)
                             {
+                                let predictionObject = PredictionObject();
+                                
                                 for prediction in predictions[vid]!
                                 {
                                     //take 1st two prediction stops as they will be source,dest
@@ -661,12 +663,13 @@ class CentroBusApiCaller : NSObject, BusModelProtocol, NSXMLParserDelegate{
                 
                 for prd in predictions
                 {
-                    if( prd.stpid == stop &&  prd.rtdir == dir && prd.rt == route)
+                    if( prd.stpid == stop &&   prd.rtdir == dir  && prd.rt == route)
                     {
                         controller.updateView(prd);
+                        return ;
                     }
                 }
-                
+                controller.updateView(Prediction()) ;
             }
         });
         
