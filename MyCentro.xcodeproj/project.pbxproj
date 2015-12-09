@@ -12,6 +12,8 @@
 		680342B71C173D130033BE45 /* DirectionsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680342B61C173D130033BE45 /* DirectionsListController.swift */; settings = {ASSET_TAGS = (); }; };
 		680342B91C173E1A0033BE45 /* StopsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680342B81C173E1A0033BE45 /* StopsListController.swift */; settings = {ASSET_TAGS = (); }; };
 		680342BB1C175E550033BE45 /* StopPredictionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680342BA1C175E550033BE45 /* StopPredictionController.swift */; settings = {ASSET_TAGS = (); }; };
+		680342BD1C1802790033BE45 /* centro-logo2.png in Resources */ = {isa = PBXBuildFile; fileRef = 680342BC1C1802790033BE45 /* centro-logo2.png */; settings = {ASSET_TAGS = (); }; };
+		680342BF1C18043A0033BE45 /* centro-tranparentBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 680342BE1C18043A0033BE45 /* centro-tranparentBack.png */; settings = {ASSET_TAGS = (); }; };
 		68143EB31C16BDAD001CD8CD /* CollegePlace.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 68143EB21C16BDAD001CD8CD /* CollegePlace.gpx */; settings = {ASSET_TAGS = (); }; };
 		68143EB51C16C7D4001CD8CD /* EGeneseeSt.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 68143EB41C16C7D4001CD8CD /* EGeneseeSt.gpx */; settings = {ASSET_TAGS = (); }; };
 		686B3AFD1C03BE3C004E6A72 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 686B3AFC1C03BE3C004E6A72 /* Default-568h@2x.png */; settings = {ASSET_TAGS = (); }; };
@@ -69,6 +71,8 @@
 		680342B61C173D130033BE45 /* DirectionsListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsListController.swift; sourceTree = "<group>"; };
 		680342B81C173E1A0033BE45 /* StopsListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopsListController.swift; sourceTree = "<group>"; };
 		680342BA1C175E550033BE45 /* StopPredictionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopPredictionController.swift; sourceTree = "<group>"; };
+		680342BC1C1802790033BE45 /* centro-logo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "centro-logo2.png"; sourceTree = "<group>"; };
+		680342BE1C18043A0033BE45 /* centro-tranparentBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "centro-tranparentBack.png"; sourceTree = "<group>"; };
 		68143EB21C16BDAD001CD8CD /* CollegePlace.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CollegePlace.gpx; sourceTree = "<group>"; };
 		68143EB41C16C7D4001CD8CD /* EGeneseeSt.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = EGeneseeSt.gpx; sourceTree = "<group>"; };
 		686B3AFC1C03BE3C004E6A72 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -137,6 +141,8 @@
 		680342B11C16EAE40033BE45 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				680342BE1C18043A0033BE45 /* centro-tranparentBack.png */,
+				680342BC1C1802790033BE45 /* centro-logo2.png */,
 				680342B21C16EAFB0033BE45 /* centro-logo.jpg */,
 			);
 			name = Images;
@@ -346,8 +352,10 @@
 			files = (
 				68F39DF51BFAC9CA005E9695 /* LaunchScreen.storyboard in Resources */,
 				68790AC11C09389500644F8C /* BusListTableViewCell.xib in Resources */,
+				680342BF1C18043A0033BE45 /* centro-tranparentBack.png in Resources */,
 				680342B31C16EAFB0033BE45 /* centro-logo.jpg in Resources */,
 				686B3AFD1C03BE3C004E6A72 /* Default-568h@2x.png in Resources */,
+				680342BD1C1802790033BE45 /* centro-logo2.png in Resources */,
 				68143EB51C16C7D4001CD8CD /* EGeneseeSt.gpx in Resources */,
 				68F39DF21BFAC9CA005E9695 /* Assets.xcassets in Resources */,
 				68F39DED1BFAC9CA005E9695 /* Main.storyboard in Resources */,

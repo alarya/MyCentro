@@ -62,7 +62,7 @@ class BusListController: UIViewController,UITableViewDataSource, UITableViewDele
         let nib = UINib(nibName: "BusListTableViewCell" , bundle: nil);
         BusListTable.registerNib(nib, forCellReuseIdentifier: "BusListCell");
         
-        //self.useMockDataForTesting();
+        self.useMockDataForTesting();
         
         BusListTable.delegate = self ;
         
