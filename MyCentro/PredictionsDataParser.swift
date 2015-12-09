@@ -18,7 +18,7 @@ import CoreLocation
 class PredictionsDataParser : NSObject, NSXMLParserDelegate
 {
     var elementValue = "";                              // to temporarily store XML element values
-    var predictions = [String: [Prediction]]();           // key - route, value - prediction
+    var predictions = [String: [Prediction]]();           // key - vehicleid, value - prediction
     var predictioninfo = Prediction() ;
     var stopPredictions = [Prediction]() ;
     
@@ -65,13 +65,13 @@ class PredictionsDataParser : NSObject, NSXMLParserDelegate
         switch(elementName)
         {
         case "prd":
-            if self.predictions[self.predictioninfo.rt] == nil
+            if self.predictions[self.predictioninfo.vid] == nil
             {
-                self.predictions[self.predictioninfo.rt] = [self.predictioninfo] ;
+                self.predictions[self.predictioninfo.vid] = [self.predictioninfo] ;
             }
             else
             {
-                self.predictions[self.predictioninfo.rt]?.append(self.predictioninfo) ;
+                self.predictions[self.predictioninfo.vid]?.append(self.predictioninfo) ;
             }
             self.stopPredictions.append(predictioninfo);
             self.elementValue = "";

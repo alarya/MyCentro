@@ -26,6 +26,7 @@ class StopPredictionController : UIViewController
     
     @IBOutlet weak var arrivalLabel: UILabel!
     
+    @IBOutlet weak var noServicesFoundLabel: UILabel!
     //--------------Init methods --------------------------------------------//
     convenience init()
     {
@@ -68,13 +69,21 @@ class StopPredictionController : UIViewController
         
         dispatch_sync(dispatch_get_main_queue(), {
             
-            self.routeLabel.text = self.route.rt + " : " + self.route.rtnm ;
+            if(self.stopPrediction.prdtm == "")
+            {
+                self.noServicesFoundLabel.hidden = false ;
+            }
+            else
+            {
+                self.routeLabel.text = self.route.rt + " : " + self.route.rtnm ;
             
-            self.directionLabel.text = self.direction ;
+                self.directionLabel.text = self.direction ;
             
-            self.stopLabel.text = self.stop.stpnm ;
+                self.stopLabel.text = self.stop.stpnm ;
             
-            self.arrivalLabel.text = self.stopPrediction.prdtm.componentsSeparatedByString(" ").last ;
+                self.arrivalLabel.text = self.stopPrediction.prdtm.componentsSeparatedByString(" ").last ;
+            }
+            
         });
     }
     

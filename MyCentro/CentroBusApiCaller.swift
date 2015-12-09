@@ -344,37 +344,39 @@ class CentroBusApiCaller : NSObject, BusModelProtocol, NSXMLParserDelegate{
                     
                     let predictionObject = PredictionObject();
                     
-                    if(predictions[route] != nil)
+                    if(predictions.count != 0)
                     {
-                        if(predictions[route]?.count >= 2)
+                        for (vid,_) in predictions
                         {
-                            for prediction in predictions[route]!
+                            if(predictions[vid]?.count >= 2)
                             {
-                                //take 1st two prediction stops as they will be source,dest
-                                // TO - DO : make sure source prd time <= dest prd time
+                                for prediction in predictions[vid]!
+                                {
+                                    //take 1st two prediction stops as they will be source,dest
+                                    // TO - DO : make sure source prd time <= dest prd time
                         
-                                if(prediction.stpid == sourcestpid)
-                                {
-                                    predictionObject.sourcestpid = prediction.stpid ;
-                                    predictionObject.sourceprdtm = prediction.prdtm ;
-                                    predictionObject.sourcestpnm = prediction.stpnm ;
-                                    //add location info
-                                    predictionObject.sourcelocation = CLLocation.init(latitude: self.stopsInfo[prediction.stpid]!.lat, longitude: self.stopsInfo[prediction.stpid]!.lon);
-                                }
-                                else if prediction.stpid == deststpid
-                                {
-                                    predictionObject.deststpid = prediction.stpid ;
-                                    predictionObject.destprdtm = prediction.prdtm ;
-                                    predictionObject.deststpnm = prediction.stpnm ;
-                                    //add location info
-                                    predictionObject.destlocation = CLLocation.init(latitude: self.stopsInfo[prediction.stpid]!.lat, longitude: self.stopsInfo[prediction.stpid]!.lon);
-                                }
+                                    if(prediction.stpid == sourcestpid)
+                                    {
+                                        predictionObject.sourcestpid = prediction.stpid ;
+                                        predictionObject.sourceprdtm = prediction.prdtm ;
+                                        predictionObject.sourcestpnm = prediction.stpnm ;
+                                        //add location info
+                                        predictionObject.sourcelocation = CLLocation.init(latitude: self.stopsInfo[prediction.stpid]!.lat, longitude: self.stopsInfo[prediction.stpid]!.lon);
+                                    }
+                                    else if prediction.stpid == deststpid
+                                    {
+                                        predictionObject.deststpid = prediction.stpid ;
+                                        predictionObject.destprdtm = prediction.prdtm ;
+                                        predictionObject.deststpnm = prediction.stpnm ;
+                                        //add location info
+                                        predictionObject.destlocation = CLLocation.init(latitude: self.stopsInfo[prediction.stpid]!.lat, longitude: self.stopsInfo[prediction.stpid]!.lon);
+                                    }
          
-                                predictionObject.rt = route ;
-                                predictionObject.rtnm = (self.routesDictionary[route]?.rtnm)!;
-                                predictionObject.rtdir = prediction.rtdir;
-                                predictionObject.vid = prediction.vid ;
-                            }
+                                    predictionObject.rt = route ;
+                                    predictionObject.rtnm = (self.routesDictionary[route]?.rtnm)!;
+                                    predictionObject.rtdir = prediction.rtdir;
+                                    predictionObject.vid = prediction.vid ;
+                                }
                             
                             //added measure to avoid adding prediction object with black source or dest stops
                             if(predictionObject.sourcestpnm != "" && predictionObject.deststpnm != "")
@@ -386,10 +388,10 @@ class CentroBusApiCaller : NSObject, BusModelProtocol, NSXMLParserDelegate{
                             }
                             
                             //print("---------prediction with timings ------------")
-                            //print(self.predictionsList);
-                            
-                            self.returnBusList(controller);
+                            //print(self.predictionsList);  
+                            }
                         }
+                        self.returnBusList(controller);
                     }
                     else
                     {
@@ -651,6 +653,11 @@ class CentroBusApiCaller : NSObject, BusModelProtocol, NSXMLParserDelegate{
             {
                 let predictionsDataParser = PredictionsDataParser();
                 let predictions = predictionsDataParser.getStopPredictions(data!)
+                
+                if predictions.count == 0
+                {
+                    controller.updateView(Prediction() );    //sending a blank prediction if no predictions found
+                }
                 
                 for prd in predictions
                 {
