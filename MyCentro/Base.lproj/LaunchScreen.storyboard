@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,18 +18,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="centro-logo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="VHu-fD-syo">
-                                <rect key="frame" x="190" y="208" width="221" height="184"/>
+                                <rect key="frame" x="202" y="238" width="197" height="123"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="221" id="pda-AS-zJ3"/>
+                                    <constraint firstAttribute="width" secondItem="VHu-fD-syo" secondAttribute="height" multiplier="197:123" id="Wge-ur-dVj"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="VHu-fD-syo" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="188" id="Gz3-du-tnf"/>
-                            <constraint firstItem="VHu-fD-syo" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="gQ2-zq-AaI"/>
-                            <constraint firstItem="VHu-fD-syo" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="tZM-Ur-0ox"/>
+                            <constraint firstItem="VHu-fD-syo" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="0Kf-cB-7U2"/>
+                            <constraint firstItem="VHu-fD-syo" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="VvN-Gr-Pyp"/>
+                            <constraint firstItem="VHu-fD-syo" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="218" id="hQe-B1-mxG"/>
                         </constraints>
                     </view>
                 </viewController>

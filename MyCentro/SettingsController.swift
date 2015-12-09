@@ -23,6 +23,8 @@ class SettingsController : UIViewController, UITextFieldDelegate,
     
     @IBOutlet weak var workSuggestions: UITableView!
     
+    //@IBOutlet weak var rangeInput: UITextField!
+    
     var homeSuggestionsArray = [CLPlacemark]();
     
     var workSuggestionsArray = [CLPlacemark]();
@@ -59,6 +61,7 @@ class SettingsController : UIViewController, UITextFieldDelegate,
         
         self.homeInput.delegate = self ;
         self.workInput.delegate = self ;
+        //self.rangeInput.delegate = self ;
 
         self.homeSuggestions.delegate = self ;
         self.workSuggestions.delegate = self ;
@@ -69,9 +72,16 @@ class SettingsController : UIViewController, UITextFieldDelegate,
         self.homeSuggestions.hidden = true;
         self.workSuggestions.hidden = true;
         
+        self.initTextFields() ;
+        
+    }
+    
+    func initTextFields()
+    {
         self.homeInput.text = self.settings.homeAddress ;
         self.workInput.text = self.settings.workAddress ;
-      
+        //self.rangeInput.text = String(self.settings.range);
+
     }
     
     override func didReceiveMemoryWarning()
@@ -217,11 +227,30 @@ class SettingsController : UIViewController, UITextFieldDelegate,
     
     
     //------------UITextField delegate methods ------------------------------------------------------------//
-    func textFieldDidBeginEditing(textField: UITextField)
+    /*
+    @IBAction func rangeInputBeginEditing(sender: AnyObject)
     {
-        
+        //self.rangeInput.text = "" ;
     }
+    */
+    //@IBAction func homeInputSelected(sender: AnyObject)
+    //{
+    //    self.homeInput.text = "" ;
+    //}
     
+    //@IBAction func worInputSelected(sender: AnyObject)
+    //{
+    //    self.workInput.text = "" ;
+   // }
+    @IBAction func homeInputSelected(sender: UITextField)
+    {
+        self.homeInput.text = "" ;
+    }
+
+    @IBAction func workInputSelected(sender: AnyObject)
+    {
+        self.workInput.text = "" ;
+    }
     @IBAction func homeTextChanged(sender: UITextField)
     {
         if homeInput.text?.characters.count > 5
@@ -292,6 +321,7 @@ class SettingsController : UIViewController, UITextFieldDelegate,
         {
             self.workSuggestions.hidden = true;
         }
+        textField.resignFirstResponder() ;
     }
     func textFieldShouldReturn(textField: UITextField) -> Bool
     {
@@ -304,7 +334,11 @@ class SettingsController : UIViewController, UITextFieldDelegate,
     @IBAction func SaveSettings(sender: AnyObject)
     {
         
-        let saveResult = self.settings.saveSettings(self.homeLocationSelected, workLocation: self.workLocationSelected, homeAddress: self.homeInput.text!, workAddress: self.workInput.text!)
+        let saveResult = self.settings.saveSettings(self.homeLocationSelected,
+                                                    workLocation: self.workLocationSelected,
+                                                    homeAddress: self.homeInput.text!,
+                                                    workAddress: self.workInput.text!
+                                                    /*range: self.rangeInput.text!*/)
         
         if(saveResult)
         {
@@ -312,6 +346,7 @@ class SettingsController : UIViewController, UITextFieldDelegate,
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil)) ;
             
             self.presentViewController(alertController, animated: true, completion: nil) ;
+            
         }
         else
         {

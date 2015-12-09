@@ -14,5 +14,7 @@
 	<string>Enter Address</string>
 	<key>WorkAddress</key>
 	<string>Enter Address</string>
+	<key>Range</key>
+	<integer>800</integer>
 </dict>
 </plist>

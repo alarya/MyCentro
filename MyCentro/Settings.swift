@@ -25,6 +25,8 @@ class Settings: NSObject
     
     var workAddress = "" ;
     
+    var range = 0 ;
+    
     //var Name = "Alok Arya" ;
     
     //var clockType = "24-hour";
@@ -73,6 +75,16 @@ class Settings: NSObject
         else
         {
             //print("Settings.plist already exists")
+            /*
+            do
+            {
+                try fileManager.removeItemAtPath(path) ;    //to delete existing file for testing
+            }
+            catch
+            {
+                //Could not delete
+            }
+            */
         }
         
         let resultDictionary = NSMutableDictionary(contentsOfFile: path)
@@ -93,6 +105,9 @@ class Settings: NSObject
         let workAddress = resultDictionary!.objectForKey("WorkAddress")
         self.workAddress = (workAddress as? String)!
         
+        //let range = resultDictionary!.objectForKey("Range")
+        //self.range = (range as? Int)!
+        
         /*
         print("Settings")
         print("Home Address")
@@ -107,7 +122,11 @@ class Settings: NSObject
    
     }
     
-    func saveSettings(homeLocation : CLLocationCoordinate2D, workLocation: CLLocationCoordinate2D, homeAddress: String, workAddress: String) -> Bool
+    func saveSettings(homeLocation : CLLocationCoordinate2D,
+                      workLocation: CLLocationCoordinate2D,
+                      homeAddress: String,
+                      workAddress: String
+                      /*range: String*/) -> Bool
     {
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as NSArray
         let documentsDirectory = paths[0] as! String
@@ -142,7 +161,19 @@ class Settings: NSObject
             dict.setObject(self.workLocation.longitude, forKey: "WorkLongitude")
             dict.setObject(self.workAddress, forKey: "WorkAddress")
         }
-            
+        
+        //check if range was updated
+        /*
+        if(self.range != Int(range)!)
+        {
+            dict.setObject(Int(range)!, forKey: "Range")
+        }
+        else
+        {
+            dict.setObject(self.range, forKey: "Range")
+        }
+        */
         return dict.writeToFile(path, atomically: false)
+
     }
 }
