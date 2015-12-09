@@ -67,11 +67,13 @@ class BusDetailsController: UIViewController, MKMapViewDelegate,  CLLocationMana
                                    title: self.busDetails.deststpnm,
                                    subtitle: self.busDetails.destprdtm) ;
         
+        self.mapView.delegate = self ;
         
         self.mapView.addAnnotation(sourcePin);
         self.mapView.addAnnotation(destPin);
         self.mapView.selectAnnotation(sourcePin, animated: true);
         self.mapView.showsUserLocation = true ;
+    
         
         //intialize map
         self.centerMapOnLocation(self.busDetails.sourcelocation,
@@ -79,7 +81,7 @@ class BusDetailsController: UIViewController, MKMapViewDelegate,  CLLocationMana
         self.centroAPI.stopsBetweenSourceDest(self.busDetails.sourcestpid, destStpId: self.busDetails.deststpid,
                                  route: self.busDetails.rt, routeDir: self.busDetails.rtdir, controller: self) ;
         
-        self.mapView.delegate = self ;
+        
         
     }
     
@@ -93,6 +95,7 @@ class BusDetailsController: UIViewController, MKMapViewDelegate,  CLLocationMana
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView?
     {
+        
         let identifier = "pin" ;
         var view: MKAnnotationView ;
         if let dequeuedView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
@@ -109,7 +112,14 @@ class BusDetailsController: UIViewController, MKMapViewDelegate,  CLLocationMana
             view.calloutOffset = CGPoint(x: -5, y: 5) ;
         }
         
-        view.image = UIImage(named: "busAnnotation.png") ;
+        if(annotation.title!! == self.busDetails.sourcestpnm || annotation.title!! == self.busDetails.deststpnm)
+        {
+            view.image = UIImage(named: "busAnnotation.png") ;
+        }
+        else
+        {
+            return nil ; 
+        }
         
         return view ;
     }

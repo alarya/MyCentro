@@ -16,7 +16,8 @@ import UIKit
 class URLgenerator : NSObject
 {
     //properties related to API calls
-    let developerKey = "2wtwVNZzJ4Wn7tijTSw8yCfFW";     //change this value to update developer key used
+    //let developerKey = "2wtwVNZzJ4Wn7tijTSw8yCfFW";     //change this value to update developer key used
+    let developerKey = "TCMBNTLMspXmbHF8iqkKpLuAv" ;     //alternate key
     let baseURI = "http://bus-time.centro.org/bustime/api/v1";       //change this to update base URI and version of centro API
     var action = "" ;                                            // execute which action call in the API request
     var arguments = [String : String]() ;               // Stores Key,value arguments to be added in the URL for API call
