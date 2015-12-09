@@ -66,6 +66,7 @@ class BusDetailsController: UIViewController, MKMapViewDelegate
         self.mapView.addAnnotation(sourcePin);
         self.mapView.addAnnotation(destPin);
         self.mapView.selectAnnotation(sourcePin, animated: true);
+        self.mapView.showsUserLocation = true ;
         
         //intialize map
         self.centerMapOnLocation(self.busDetails.sourcelocation,
