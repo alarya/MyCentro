@@ -18,18 +18,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="centro-logo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="VHu-fD-syo">
-                                <rect key="frame" x="202" y="238" width="197" height="123"/>
+                                <rect key="frame" x="225" y="242" width="150" height="116"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="VHu-fD-syo" secondAttribute="height" multiplier="197:123" id="Wge-ur-dVj"/>
+                                    <constraint firstAttribute="width" secondItem="VHu-fD-syo" secondAttribute="height" multiplier="75:58" id="WIm-NV-HVY"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="VHu-fD-syo" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="0Kf-cB-7U2"/>
-                            <constraint firstItem="VHu-fD-syo" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="VvN-Gr-Pyp"/>
-                            <constraint firstItem="VHu-fD-syo" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="218" id="hQe-B1-mxG"/>
+                            <constraint firstItem="VHu-fD-syo" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="OAB-Pb-F5v"/>
+                            <constraint firstItem="VHu-fD-syo" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="URK-k1-tG5"/>
+                            <constraint firstItem="VHu-fD-syo" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="222" id="yYv-mX-YXP"/>
                         </constraints>
                     </view>
                 </viewController>

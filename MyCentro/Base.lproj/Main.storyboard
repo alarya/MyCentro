@@ -415,6 +415,7 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="sourceTextChanged:" destination="JWB-M3-cjW" eventType="editingChanged" id="b9h-fb-oJO"/>
+                                    <action selector="sourceTextFieldSelected:" destination="JWB-M3-cjW" eventType="touchDown" id="LT3-YD-8gQ"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OAr-d8-puQ">
@@ -423,6 +424,7 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="destTextChanged:" destination="JWB-M3-cjW" eventType="editingChanged" id="8JE-Hf-Mdd"/>
+                                    <action selector="destTextFieldSelected:" destination="JWB-M3-cjW" eventType="touchDown" id="k6n-qH-t3n"/>
                                 </connections>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="18" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mrA-6Q-WfX">
@@ -1133,6 +1135,6 @@
         <image name="centro-tranparentBack.png" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="GdZ-Um-WbJ"/>
+        <segue reference="hXH-sf-DSS"/>
     </inferredMetricsTieBreakers>
 </document>

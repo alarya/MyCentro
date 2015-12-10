@@ -320,4 +320,14 @@ class SearchBusesController: UIViewController, UITextFieldDelegate,
         }
     }
     
+    @IBAction func sourceTextFieldSelected(sender: UITextField)
+    {
+        self.sourceInput.text = "" ;
+    }
+    
+    @IBAction func destTextFieldSelected(sender: UITextField)
+    {
+        self.destInput.text = "" ;
+    }
+    
 }
