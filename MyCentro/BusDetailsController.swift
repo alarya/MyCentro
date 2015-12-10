@@ -56,12 +56,12 @@ class BusDetailsController: UIViewController, MKMapViewDelegate,  CLLocationMana
         self.destTime.text = self.busDetails.destprdtm.componentsSeparatedByString(" ").last ;
         
         //annotate
-        let sourcePin = BusStop.init(name: self.busDetails.sourcestpnm,
+        let sourcePin = Annotation.init(name: self.busDetails.sourcestpnm,
                                      coordinate: CLLocationCoordinate2D.init(latitude: self.busDetails.sourcelocation.coordinate.latitude,
                                                                             longitude: self.busDetails.sourcelocation.coordinate.longitude),
                                      title: self.busDetails.sourcestpnm,
                                      subtitle: self.busDetails.sourceprdtm) ;
-        let destPin = BusStop.init(name: self.busDetails.deststpnm,
+        let destPin = Annotation.init(name: self.busDetails.deststpnm,
                                    coordinate: CLLocationCoordinate2D.init(latitude: self.busDetails.destlocation.coordinate.latitude,
                                                                           longitude: self.busDetails.destlocation.coordinate.longitude),
                                    title: self.busDetails.deststpnm,
@@ -82,15 +82,21 @@ class BusDetailsController: UIViewController, MKMapViewDelegate,  CLLocationMana
                                  route: self.busDetails.rt, routeDir: self.busDetails.rtdir, controller: self) ;
         
         
-        
+        //start repeating method to update bus Location
+        //_ = NSTimer.scheduledTimerWithTimeInterval(10, target: self,selector: "addAnnotationForBusLocation", userInfo: nil, repeats: true) ;
+
     }
     
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        // Dispose of any resources that can
     }
     
+    func addAnnotationForBusLocation()
+    {
+        centroAPI.getVehicleLocation(self.busDetails.vid , controller: self) ;
+    }
     //----------------------MKMapView Delegate methods -------------------------------------------------//
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView?
@@ -116,6 +122,22 @@ class BusDetailsController: UIViewController, MKMapViewDelegate,  CLLocationMana
         {
             view.image = UIImage(named: "busAnnotation.png") ;
         }
+/*        else if(annotation.title!! == "Bus")
+        {
+            //first remove existing bus location annotation
+            /*
+            let annotations = self.mapView.annotations ;
+            for annotation in annotations
+            {
+                if annotation.title! == "Bus"
+                {
+                    self.mapView.removeAnnotation(annotation)
+                }
+            }
+            */
+            self.mapView.removeAnnotation(annotation);
+            view.image = UIImage(named: "bus.png");
+        } */
         else
         {
             return nil ; 
@@ -176,7 +198,7 @@ class BusDetailsController: UIViewController, MKMapViewDelegate,  CLLocationMana
             
             for stop in stops
             {
-                let stopAnnotate = BusStop.init(name: stop.stpnm, coordinate: CLLocationCoordinate2D.init(latitude: stop.lat,
+                let stopAnnotate = Annotation.init(name: stop.stpnm, coordinate: CLLocationCoordinate2D.init(latitude: stop.lat,
                                                 longitude: stop.lon), title: stop.stpnm , subtitle: "");
                 
                 self.mapView.addAnnotation(stopAnnotate);
@@ -184,13 +206,25 @@ class BusDetailsController: UIViewController, MKMapViewDelegate,  CLLocationMana
         });
     }
     
+    //update location of the vehicle : called by the CentroAPICaller
+    func updateVehicleLocation(vehicle: Vehicle)
+    {
+        let busCurrentLocation = Annotation.init(name: "Bus",
+            coordinate: CLLocationCoordinate2D.init(latitude: Double(vehicle.lat)!, longitude: Double(vehicle.lon)!),
+            title: "Bus",
+            subtitle: "")
+        
+        dispatch_sync(dispatch_get_main_queue(), {
+            self.mapView.addAnnotation(busCurrentLocation);
+        });
+    }
 
 }
 
 /***************************
     Map Annotation Object
 ****************************/
-class BusStop : NSObject, MKAnnotation
+class Annotation : NSObject, MKAnnotation
 {
     let name : String
     let coordinate : CLLocationCoordinate2D

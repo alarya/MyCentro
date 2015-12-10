@@ -511,6 +511,45 @@ class CentroBusApiCaller : NSObject, BusModelProtocol, NSXMLParserDelegate{
         return false;
     }
     
+    func getVehicleLocation(vid: String, controller: BusDetailsController)
+    {
+        let requestGenerator = URLgenerator();
+        requestGenerator.action = "getvehicles" ;
+        //arguments for API call
+        requestGenerator.arguments["vid"] = vid;
+        
+        let URL = NSURL.init(string: requestGenerator.request)!;
+        let URLRequest = NSURLRequest.init(URL: URL);
+        
+        
+        print("Calling: ");
+        print(requestGenerator.request);
+        print("\n");
+        
+        let taskGetVehicle : NSURLSessionDataTask = session.dataTaskWithRequest(URLRequest, completionHandler: {
+            (data: NSData?,response: NSURLResponse?,error: NSError?) -> Void in
+            
+            if error != nil
+            {
+                //handle error
+                print("Error in getting vehicle info");
+                print(error?.domain);
+                print(error?.description);
+                print("\n");
+                
+            }
+            else
+            {
+                let vehicleDataParser = VehicleDataParser();
+                let vehicle = vehicleDataParser.getVehicleInfo(data!)
+                
+                controller.updateVehicleLocation(vehicle) ;
+            }
+        });
+        
+        taskGetVehicle.resume();
+    }
+    
     func returnRouteList(controller: RoutesListController)
     {
         //--------get all routes--------------

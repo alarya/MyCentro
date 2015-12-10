@@ -64,3 +64,10 @@ class BusDetails: NSObject
     var destTime = "";
     var intermediateLocations = [CLLocation]();
 }
+
+class Vehicle: NSObject
+{
+    var vid = "" ;
+    var lat = "" ;
+    var lon = "" ;
+}

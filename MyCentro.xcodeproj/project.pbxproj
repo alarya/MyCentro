@@ -15,8 +15,9 @@
 		680342BD1C1802790033BE45 /* centro-logo2.png in Resources */ = {isa = PBXBuildFile; fileRef = 680342BC1C1802790033BE45 /* centro-logo2.png */; settings = {ASSET_TAGS = (); }; };
 		680342BF1C18043A0033BE45 /* centro-tranparentBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 680342BE1C18043A0033BE45 /* centro-tranparentBack.png */; settings = {ASSET_TAGS = (); }; };
 		680342C11C184DAC0033BE45 /* busAnnotation.png in Resources */ = {isa = PBXBuildFile; fileRef = 680342C01C184DAC0033BE45 /* busAnnotation.png */; settings = {ASSET_TAGS = (); }; };
-		680342C81C18C2530033BE45 /* bus.png in Resources */ = {isa = PBXBuildFile; fileRef = 680342C61C18C2530033BE45 /* bus.png */; settings = {ASSET_TAGS = (); }; };
 		680342C91C18C2530033BE45 /* user-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 680342C71C18C2530033BE45 /* user-logo.png */; settings = {ASSET_TAGS = (); }; };
+		680342CD1C1A2E250033BE45 /* VehicleDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680342CC1C1A2E250033BE45 /* VehicleDataParser.swift */; settings = {ASSET_TAGS = (); }; };
+		680342CF1C1A308B0033BE45 /* bus.png in Resources */ = {isa = PBXBuildFile; fileRef = 680342CE1C1A308B0033BE45 /* bus.png */; settings = {ASSET_TAGS = (); }; };
 		68143EB31C16BDAD001CD8CD /* CollegePlace.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 68143EB21C16BDAD001CD8CD /* CollegePlace.gpx */; settings = {ASSET_TAGS = (); }; };
 		68143EB51C16C7D4001CD8CD /* EGeneseeSt.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 68143EB41C16C7D4001CD8CD /* EGeneseeSt.gpx */; settings = {ASSET_TAGS = (); }; };
 		686B3AFD1C03BE3C004E6A72 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 686B3AFC1C03BE3C004E6A72 /* Default-568h@2x.png */; settings = {ASSET_TAGS = (); }; };
@@ -77,8 +78,9 @@
 		680342BC1C1802790033BE45 /* centro-logo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "centro-logo2.png"; sourceTree = "<group>"; };
 		680342BE1C18043A0033BE45 /* centro-tranparentBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "centro-tranparentBack.png"; sourceTree = "<group>"; };
 		680342C01C184DAC0033BE45 /* busAnnotation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = busAnnotation.png; sourceTree = "<group>"; };
-		680342C61C18C2530033BE45 /* bus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bus.png; sourceTree = "<group>"; };
 		680342C71C18C2530033BE45 /* user-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user-logo.png"; sourceTree = "<group>"; };
+		680342CC1C1A2E250033BE45 /* VehicleDataParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleDataParser.swift; sourceTree = "<group>"; };
+		680342CE1C1A308B0033BE45 /* bus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bus.png; sourceTree = "<group>"; };
 		68143EB21C16BDAD001CD8CD /* CollegePlace.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CollegePlace.gpx; sourceTree = "<group>"; };
 		68143EB41C16C7D4001CD8CD /* EGeneseeSt.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = EGeneseeSt.gpx; sourceTree = "<group>"; };
 		686B3AFC1C03BE3C004E6A72 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -147,7 +149,7 @@
 		680342B11C16EAE40033BE45 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				680342C61C18C2530033BE45 /* bus.png */,
+				680342CE1C1A308B0033BE45 /* bus.png */,
 				680342C71C18C2530033BE45 /* user-logo.png */,
 				680342C01C184DAC0033BE45 /* busAnnotation.png */,
 				680342BE1C18043A0033BE45 /* centro-tranparentBack.png */,
@@ -164,6 +166,7 @@
 				686B3B011C040E1E004E6A72 /* StopsDataParser.swift */,
 				686B3B031C0415BB004E6A72 /* DirectionsDataParser.swift */,
 				68790ABC1C053B8000644F8C /* PredictionsDataParser.swift */,
+				680342CC1C1A2E250033BE45 /* VehicleDataParser.swift */,
 			);
 			name = CentroBusApiParsers;
 			sourceTree = "<group>";
@@ -361,13 +364,13 @@
 			files = (
 				68F39DF51BFAC9CA005E9695 /* LaunchScreen.storyboard in Resources */,
 				68790AC11C09389500644F8C /* BusListTableViewCell.xib in Resources */,
-				680342C81C18C2530033BE45 /* bus.png in Resources */,
 				680342BF1C18043A0033BE45 /* centro-tranparentBack.png in Resources */,
 				680342B31C16EAFB0033BE45 /* centro-logo.jpg in Resources */,
 				686B3AFD1C03BE3C004E6A72 /* Default-568h@2x.png in Resources */,
 				680342C11C184DAC0033BE45 /* busAnnotation.png in Resources */,
 				680342BD1C1802790033BE45 /* centro-logo2.png in Resources */,
 				68143EB51C16C7D4001CD8CD /* EGeneseeSt.gpx in Resources */,
+				680342CF1C1A308B0033BE45 /* bus.png in Resources */,
 				680342C91C18C2530033BE45 /* user-logo.png in Resources */,
 				68F39DF21BFAC9CA005E9695 /* Assets.xcassets in Resources */,
 				68F39DED1BFAC9CA005E9695 /* Main.storyboard in Resources */,
@@ -406,6 +409,7 @@
 				68F39DEA1BFAC9CA005E9695 /* BusListController.swift in Sources */,
 				68C05FDB1C0968E8007A3915 /* SearchBusesController.swift in Sources */,
 				680342B71C173D130033BE45 /* DirectionsListController.swift in Sources */,
+				680342CD1C1A2E250033BE45 /* VehicleDataParser.swift in Sources */,
 				680342B51C173CEC0033BE45 /* RoutesListController.swift in Sources */,
 				680342B91C173E1A0033BE45 /* StopsListController.swift in Sources */,
 				68EC13681C118CF900EAE59D /* SettingsController.swift in Sources */,
