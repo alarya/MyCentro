@@ -84,6 +84,8 @@ class BusDetailsController: UIViewController, MKMapViewDelegate,  CLLocationMana
         
         //start repeating method to update bus Location
         //_ = NSTimer.scheduledTimerWithTimeInterval(10, target: self,selector: "addAnnotationForBusLocation", userInfo: nil, repeats: true) ;
+        
+        centroAPI.getVehicleLocation(self.busDetails.vid , controller: self) ;
 
     }
     
@@ -118,11 +120,18 @@ class BusDetailsController: UIViewController, MKMapViewDelegate,  CLLocationMana
             view.calloutOffset = CGPoint(x: -5, y: 5) ;
         }
         
+        //print("---------Bus annotation---------") ;
+        ////print( annotation.title! ) ;
+        //print( annotation.title!! ) ;
+        
         if(annotation.title!! == self.busDetails.sourcestpnm || annotation.title!! == self.busDetails.deststpnm)
         {
             view.image = UIImage(named: "busAnnotation.png") ;
+            return view ;
         }
-/*        else if(annotation.title!! == "Bus")
+        
+        
+        if( annotation.title!! == "Bus" )
         {
             //first remove existing bus location annotation
             /*
@@ -135,15 +144,13 @@ class BusDetailsController: UIViewController, MKMapViewDelegate,  CLLocationMana
                 }
             }
             */
-            self.mapView.removeAnnotation(annotation);
+            //self.mapView.removeAnnotation(annotation);
             view.image = UIImage(named: "bus.png");
-        } */
-        else
-        {
-            return nil ; 
+            
+            return view;
         }
-        
-        return view ;
+            return nil ; 
+
     }
     
     func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer
