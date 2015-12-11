@@ -325,6 +325,7 @@ class SettingsController : UIViewController, UITextFieldDelegate,
     }
     func textFieldShouldReturn(textField: UITextField) -> Bool
     {
+        textField.resignFirstResponder();
         return true;
     }
     //------------End of UITextField delegate methods --------------------------------//
